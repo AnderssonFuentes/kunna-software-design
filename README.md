@@ -1,59 +1,71 @@
 # KUNNA Software Design
 
-KUNNA is a personal software engineering project based on an original UX/UI prototype created several years ago. The original prototype was designed as a user experience and interface design project. This repository rebuilds that idea as a professional software engineering project.
+KUNNA is a personal software engineering project based on an original UX/UI prototype created several years ago. The original prototype was designed as a user experience and interface design project. This repository evolves that idea into a professional software engineering case study.
 
-The goal is not only to create an application, but to document the complete engineering process behind it: product vision, user goals, use cases, requirements, domain modeling, UML diagrams, object-oriented analysis, design decisions, Java implementation, and future API development with Spring Boot.
+The goal is not only to create an application, but to produce credible and traceable engineering evidence through product reasoning, requirements, use cases, risk management, selective modeling, object-oriented analysis and design, architecture decisions, Java implementation, automated testing, and iterative validation.
 
 ## Project Purpose
 
-KUNNA is focused on mothers, fathers, and caregivers. Its product domain includes children's rights, positive parenting, daily tips, audio content, bookmarks, downloads, search, user profile, and content sharing.
+KUNNA is focused primarily on mothers, fathers, and caregivers.
 
-The project is designed as professional portfolio evidence for software engineering learning and employability.
+The original prototype explored capabilities related to children's rights, positive parenting, daily tips, audio content, bookmarks, downloads, search, user profiles, and content sharing.
+
+These capabilities are treated as **product hypotheses and candidate scope**, not as validated requirements or guaranteed implementation commitments.
+
+The project also serves as professional software engineering evidence for learning and employability. Portfolio value should result from the engineering work that actually occurs rather than determine product scope, architecture, or technology choices.
 
 ## Why This Project Exists
 
-KUNNA started as a UX/UI prototype. However, this repository treats the product as a software engineering case study.
+KUNNA started as a UX/UI prototype. This repository treats that product concept as a software engineering case study.
 
-The purpose is to show how an initial product idea can be transformed into a structured software project through:
+The purpose is to show how an initial product idea can evolve through:
 
-- Problem analysis.
+- Product and problem analysis.
 - User goal definition.
 - Use-case modeling.
 - Supplementary requirements.
 - Glossary and domain language.
-- Risk identification.
+- Risk identification and reassessment.
 - Iterative development planning.
-- Architecture and design decisions.
-- Object-oriented design.
+- Selective UML and object-oriented analysis.
+- Architecture hypotheses and design decisions.
 - Progressive Java implementation.
+- Automated verification.
+- Evidence-based refinement.
 
 ## Strategic Approach
 
-This project follows an iterative software engineering approach inspired by:
+KUNNA follows an iterative, risk-aware, use-case-driven, and product-oriented software engineering approach inspired by:
 
 - Object-oriented analysis and design.
 - UML modeling.
-- Use-case driven development.
-- Craig Larman's process-oriented approach from _Applying UML and Patterns_.
-- Product-first thinking: problem, user outcome, decision-making, and implementation as a consequence.
+- Use-case-driven development.
+- Selected practices from Craig Larman's _Applying UML and Patterns_.
+- Product-first thinking.
+- Risk-driven planning.
+- Incremental implementation and feedback.
 
-The project also follows a product-first principle:
+The project follows a product-first principle:
 
 > Code is a means, not the goal.
 
-This means implementation decisions should be justified by the problem, the users, the expected outcomes, and the design artifacts.
+Implementation decisions should be justified by the problem, expected user outcomes, current risks, relevant requirements, and engineering evidence.
+
+Documentation and implementation are complementary activities.
+
+The project does not require every possible artifact or model before producing executable feedback.
 
 ## Current Phase
 
 The project is currently in:
 
-**I1 — Inception Package**
+**I2 — Elaboration**
 
-The objective of this phase is to clarify the foundation of the project before writing production code.
+The previous milestone, **I1 — Inception Package**, was completed and closed.
 
-This phase includes:
+I1 established the initial product and engineering baseline, including:
 
-- Initial repository structure.
+- Repository structure.
 - Project vision.
 - User goals.
 - Initial use case model.
@@ -66,6 +78,23 @@ This phase includes:
 - Decision journal.
 - Product backlog.
 - ADR-0001: Start with Inception Before Coding.
+
+I2 now focuses on reducing important product, requirements, domain, and architecture risks around one architecturally significant use case.
+
+The current direction is to:
+
+- Select one significant use case.
+- Refine only the behavior and supplementary requirements relevant to that slice.
+- Create focused domain and system-operation analysis.
+- Formulate an architecture hypothesis.
+- Implement a small executable Java vertical slice.
+- Add meaningful automated tests.
+- Evaluate the resulting evidence.
+- Reassess risks, architecture assumptions, and backlog priorities.
+
+Elaboration is therefore **not analysis-only**.
+
+Executable evidence is deliberately produced before broader Construction work begins.
 
 ## Language Rule
 
@@ -117,58 +146,110 @@ kunna-software-design/
     └── pull_request_template.md
 ```
 
+The files currently present in `research/` are placeholders. Their presence does not represent completed user research, competitive analysis, or product validation.
+
 ## Development Workflow
 
-The project uses a professional GitHub-based workflow:
+KUNNA uses a professional GitHub-based workflow.
 
+The Project board uses:
+
+```text
+Backlog → Ready → In Progress → Review → Done
 ```
-Issue → Branch → Artifact → Commit → Pull Request → Review → Merge → Done
+
+Meaningful work should remain traceable through:
+
+```text
+Issue
+↓
+Branch
+↓
+Focused commits
+↓
+Pull request
+↓
+Review and validation
+↓
+Merge
+↓
+Issue closure
 ```
 
-Each relevant task should be connected to:
+The detailed operational workflow is maintained in:
 
-- A GitHub Issue.
-- A milestone.
-- A project board status.
-- A clear commit message.
-- A pull request when changes are integrated into main.
+- `docs/06-development-plan.md`
+- `docs/07-development-framework.md`
 
 ## Current Milestone
 
-**I1 — Inception Package**
+**I2 — Elaboration**
 
-This milestone organizes the initial software engineering foundation for KUNNA.
+The milestone contains the current sequence of risk-reduction work:
 
-The current focus is documentation, analysis, product reasoning, and project structure.
+1. **#29 — Review the I1 baseline and reprioritize key risks.**
+2. **#30 — Select the architecturally significant use case for I2.**
+3. **#31 — Refine the selected use case and relevant supplementary requirements.**
+4. **#32 — Create a focused Domain Model and identify system operations.**
+5. **#33 — Define the initial architecture hypothesis and validation strategy.**
+6. **#34 — Build the first executable Java vertical slice with automated tests.**
+7. **#35 — Evaluate the vertical slice and reassess architectural risks.**
+8. **#36 — Assess I2 exit criteria and decide transition to Construction.**
 
-Production code is intentionally out of scope at this stage.
+This sequence reflects current dependencies and risk reduction.
+
+It is not a rigid waterfall. Implementation evidence may cause requirements, models, risks, architecture assumptions, or backlog priorities to be refined.
+
+## Technology Direction
+
+Java is the primary implementation language.
+
+Spring Boot, REST APIs, persistence, databases, authentication, external services, or other infrastructure are **not predetermined requirements**.
+
+They may be introduced when a concrete product, delivery, integration, or architecture need justifies them.
+
+Technology choices should follow evidence rather than portfolio expectations.
 
 ## Core Rules
 
-- Do not start with production code.
-- Do not add code that cannot be explained.
-- Use documentation as engineering evidence.
-- Document important decisions.
-- Connect every major artifact to a GitHub Issue.
+- Understand enough of the current product and engineering problem before implementing.
+- Keep work focused on current value, risk, and evidence.
+- Do not treat prototype capabilities as validated requirements.
+- Use documentation and modeling selectively.
+- Do not create UML artifacts only for completeness.
+- Do not introduce frameworks or infrastructure without demonstrated need.
+- Keep important decisions traceable.
+- Connect meaningful work to GitHub Issues and pull requests.
+- Use automated tests as evidence of implemented behavior.
 - Use AI as support, not as authority.
-- Every concept learned should produce a concrete artifact in KUNNA.
+- Preserve human understanding and responsibility for accepted work.
+- Prefer credible engineering evidence over artifact or technology volume.
 
 ## Professional Evidence
 
 This repository is intended to demonstrate growth in:
 
 - Software engineering fundamentals.
+- Product-oriented engineering.
 - GitHub project organization.
 - Requirements analysis.
-- Use-case driven development.
+- Risk management.
+- Use-case-driven development.
 - UML and object-oriented modeling.
+- Architecture reasoning.
 - Technical documentation.
 - Decision-making.
-- Java learning.
-- Portfolio construction.
+- Java implementation.
+- Automated testing.
+- Traceability.
+- Evidence-based iteration.
+
+The professional value of KUNNA should come from the quality and explainability of the engineering process that actually occurred.
 
 ## Spanish Summary
 
-KUNNA es un proyecto personal de ingeniería de software basado en un prototipo UX/UI original. El objetivo no es reconstruir únicamente una interfaz, sino convertir la idea en un proyecto profesional documentado, con visión de producto, usuarios, casos de uso, requisitos, decisiones, UML, diseño orientado a objetos e implementación progresiva en Java.
+KUNNA es un proyecto personal de ingeniería de software basado en un prototipo UX/UI original. El objetivo no es reconstruir únicamente una interfaz, sino evolucionar esa idea mediante análisis de producto, requisitos, gestión de riesgos, casos de uso, modelado selectivo, diseño orientado a objetos, decisiones de arquitectura, implementación progresiva en Java y pruebas automatizadas.
 
-El proyecto se encuentra actualmente en la fase I1 — Inception Package, enfocada en entender el problema, definir el alcance inicial y preparar la base antes de escribir código de producción.
+El proyecto se encuentra actualmente en **I2 — Elaboration**. Después de completar **I1 — Inception Package**, la prioridad es seleccionar un caso de uso arquitectónicamente significativo, refinar únicamente lo necesario para ese alcance, formular una hipótesis de arquitectura y validarla mediante una pequeña vertical slice ejecutable en Java con pruebas automatizadas.
+
+Las capacidades del prototipo original se consideran hipótesis de producto hasta que exista evidencia suficiente para justificar su prioridad o implementación.
