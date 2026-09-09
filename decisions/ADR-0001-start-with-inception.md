@@ -10,7 +10,21 @@ Accepted
 
 ## Last Reviewed
 
-2026-08-02
+2026-09-08
+
+## Review Outcome
+
+The decision remains **Accepted**.
+
+The **I1 — Inception Package** was completed on 2026-08-02 and fulfilled the purpose of establishing KUNNA's initial product and engineering baseline before implementation work expanded.
+
+The current **I2 — Elaboration** milestone does not reopen or invalidate the Inception decision. Instead, it builds on that baseline by reducing significant product, requirements, domain, and architecture risks through focused analysis and executable evidence.
+
+During I2, KUNNA may implement a small Java vertical slice with meaningful automated tests as an engineering validation mechanism. This does not mean that the system is production-ready, nor does it require broad implementation or final infrastructure.
+
+The historical expectation of future API development with Spring Boot should now be interpreted as conditional rather than guaranteed. Spring Boot, APIs, persistence, authentication, databases, or other infrastructure should be introduced only when a demonstrated product, delivery, integration, or architecture need justifies them.
+
+No new ADR is required merely because I2 introduces executable validation. A separate ADR should be created only if a sufficiently significant architectural decision emerges.
 
 ## Context
 
@@ -316,6 +330,12 @@ This decision is connected to:
 - GitHub Milestone: `I1 — Inception Package`
 - GitHub Issue: `#15`
 - Decision Journal Entry: `DJ-001`
+
+The current review is also traceable to:
+
+- GitHub Issue: `#29`
+- GitHub Milestone: `I2 — Elaboration`
+- Decision Journal Entry: `DJ-008`
 
 ## Review Triggers
 
