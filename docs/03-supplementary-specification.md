@@ -2,7 +2,9 @@
 
 ## Document Purpose
 
-This document defines the initial supplementary specification for KUNNA as part of the **I1 — Inception Package**.
+This document defines the supplementary specification baseline for KUNNA.
+
+The specification was initially created during the **I1 — Inception Package** and is now reviewed as part of **I2 — Elaboration**.
 
 The purpose of this artifact is to document requirements, constraints, quality attributes, and general rules that are not fully described by individual use cases.
 
@@ -12,6 +14,10 @@ This document complements:
 - `docs/00-vision.md`
 - `docs/01-user-goals.md`
 - `docs/02-use-case-model.md`
+
+The requirements recorded here originated as an initial I1 baseline. They should not all be interpreted as validated, equally important, or automatically applicable to the current I2 slice.
+
+Detailed refinement should remain focused on the architecturally significant use case selected for I2 and on the supplementary requirements that materially affect that slice.
 
 ## What Is a Supplementary Specification?
 
@@ -30,7 +36,7 @@ The supplementary specification describes additional concerns such as:
 - Language rules.
 - Technical constraints.
 - Documentation rules.
-- Future implementation assumptions.
+- Implementation assumptions that require validation.
 
 ## System Under Design
 
@@ -38,35 +44,45 @@ The system under design is:
 
 **KUNNA**
 
-KUNNA is a digital product intended to support caregivers with accessible content related to children's rights, positive parenting, daily tips, audio content, bookmarks, downloads, search, profile, and content sharing.
+KUNNA is a digital product concept intended primarily to support mothers, fathers, and caregivers.
+
+The original UX/UI prototype explored capabilities related to children's rights, positive parenting, daily tips, audio content, bookmarks, downloads, search, profiles, and content sharing.
+
+These capabilities remain candidate product scope unless they are supported by current product reasoning and selected for further refinement or implementation.
 
 ## Current Phase
 
 The project is currently in:
 
-**I1 — Inception Package**
+**I2 — Elaboration**
 
-During this phase, the main objective is not to implement production code.
+The previous milestone, **I1 — Inception Package**, was completed and closed.
 
-The objective is to clarify:
+I2 focuses on reducing significant product, requirements, domain, and architecture risks through focused analysis and executable evidence.
 
-- Product vision.
-- User goals.
-- Use cases.
-- Supplementary requirements.
-- Glossary.
-- Risks.
-- Development plan.
-- Development framework.
-- AI collaboration policy.
-- Decision records.
-- Product backlog.
+The current milestone is expected to:
+
+- Review and refine the I1 baseline.
+- Select one architecturally significant use case.
+- Refine only the behavior and supplementary requirements relevant to that slice.
+- Create focused domain and system-operation analysis.
+- Formulate an architecture hypothesis.
+- Implement a small executable Java vertical slice.
+- Add meaningful automated tests.
+- Evaluate the resulting evidence.
+- Reassess risks and architecture assumptions before considering Construction.
+
+Executable work during Elaboration is intended to validate engineering decisions. It does not imply that KUNNA is production-ready or that broad infrastructure is required.
 
 ## Scope of This Specification
 
-This document defines initial supplementary requirements for the project.
+This document contains the initial cross-cutting requirements and constraints established during I1, together with the minimum updates required to keep the baseline coherent during I2.
 
-At this stage, the requirements are not final. They provide a starting point for future elaboration, design, and implementation.
+The requirements are not final.
+
+Some remain hypotheses or preliminary quality expectations and may be refined, narrowed, deferred, or superseded when the selected I2 use case provides better evidence.
+
+The I2 baseline review does not attempt to rewrite every supplementary requirement in advance.
 
 ## Functional Context
 
@@ -85,6 +101,8 @@ The current use case model identifies the following candidate use cases:
 
 This supplementary specification defines cross-cutting requirements that may affect several of these use cases.
 
+The presence of a use case in this list does not mean that it has been selected for the current I2 vertical slice.
+
 ## Usability Requirements
 
 ### SUP-01 — Clear and Accessible Language
@@ -101,7 +119,7 @@ The product is intended for mothers, fathers, and caregivers who may need practi
 
 ### SUP-02 — Simple Navigation
 
-KUNNA should provide simple navigation between content, categories, daily tips, saved content, audio, downloads, search, profile, and sharing options.
+KUNNA should provide simple navigation between content, categories, daily tips, saved content, audio, downloads, search, profile, and sharing options when those capabilities are part of the implemented product scope.
 
 #### Rationale
 
@@ -211,7 +229,7 @@ The value of the product depends on whether caregivers can apply or understand t
 
 KUNNA should treat child-rights and parenting content as sensitive and important.
 
-Future content sources should be reviewed carefully.
+Content sources should be reviewed carefully before authoritative or user-facing claims are accepted.
 
 #### Rationale
 
@@ -221,7 +239,7 @@ The product domain involves children, care, and rights. Inaccurate content could
 
 ### SUP-12 — Content Should Be Organized by Topics or Categories
 
-Content should be organized in a way that supports browsing and searching.
+Content should be organized in a way that supports browsing and searching when those capabilities are part of the selected product scope.
 
 Possible initial categories may include:
 
@@ -236,7 +254,7 @@ Possible initial categories may include:
 
 ### SUP-13 — Content Should Support Reuse
 
-Useful content should be easy to save, revisit, share, or download when appropriate.
+Useful content should be easy to save, revisit, share, or download when those capabilities are appropriate and included in the implemented scope.
 
 #### Rationale
 
@@ -244,13 +262,13 @@ Caregivers may need to return to important content later.
 
 ## Security and Privacy Requirements
 
-### SUP-14 — No Sensitive Data in Early Phases
+### SUP-14 — No Real Sensitive Data in Current Engineering Work
 
-During the current phase, the project should avoid collecting or implementing real personal data.
+Current analysis, experiments, tests, and executable validation should avoid real personal or sensitive data.
 
 #### Rationale
 
-The current focus is documentation, analysis, and design. Authentication and real user data are out of scope for now.
+I2 does not require production user data. Examples and tests can use fictitious, anonymized, or synthetic information while privacy needs remain under analysis.
 
 ---
 
@@ -264,13 +282,15 @@ The product may eventually include saved content, preferences, or user informati
 
 ---
 
-### SUP-16 — Authentication Is Out of Scope for Inception
+### SUP-16 — Authentication Is Not Currently Assumed
 
-Authentication, password recovery, and account management are not part of the current Inception implementation scope.
+Authentication, password recovery, account management, and user registration are not automatically required for the current I2 slice.
+
+If the selected use case or validation strategy demonstrates a need for authentication, that need should be analyzed explicitly before implementation.
 
 #### Rationale
 
-These features require technical and security decisions that should be addressed in later phases.
+Authentication introduces security, privacy, persistence, and architecture consequences that should not be adopted without demonstrated need.
 
 ## Reliability Requirements
 
@@ -296,7 +316,7 @@ Saved content only creates value if users can reliably return to it.
 
 ### SUP-19 — Basic Content Interactions Should Be Fast
 
-Future implementations should prioritize fast access to content, search results, and daily tips.
+Implemented content interactions should prioritize responsive access when performance is relevant to the selected use case.
 
 #### Rationale
 
@@ -306,31 +326,39 @@ Caregivers may need quick consultation.
 
 ### SUP-20 — Performance Requirements Are Preliminary
 
-Exact performance targets are not defined during Inception.
+Exact performance targets are not yet defined.
 
 #### Rationale
 
-The project has not yet entered construction, architecture, or deployment decisions.
+Meaningful targets should be derived from the selected behavior, architecture hypothesis, delivery context, and available evidence rather than invented in advance.
 
 ## Technical Constraints
 
-### SUP-21 — No Production Code During Inception
+### SUP-21 — Executable Validation Is Allowed During Elaboration
 
-Production code is intentionally out of scope during the current phase.
+I2 may include a small executable Java vertical slice and meaningful automated tests.
+
+This work is intended to validate analysis, design, architecture assumptions, and technical risks.
+
+It does not require production-ready implementation.
 
 #### Rationale
 
-The project follows a documentation-first and product-first approach.
+Executable evidence can expose incorrect assumptions earlier than analysis or documentation alone.
 
 ---
 
-### SUP-22 — Future Implementation Should Be Progressive
+### SUP-22 — Implementation Should Be Progressive and Evidence-Driven
 
-Future implementation should start with simple Java concepts before moving to advanced architecture or Spring Boot.
+Java is the primary implementation language.
+
+The first I2 executable slice should use the smallest technically sufficient solution that supports the selected use case and validation strategy.
+
+Frameworks, APIs, persistence, authentication, databases, or other infrastructure should be introduced only when a demonstrated product, delivery, integration, or architecture need justifies them.
 
 #### Rationale
 
-The project is also a learning path for software engineering, Java, object-oriented design, and backend development.
+The project should develop technical capability while avoiding premature complexity and predetermined architecture.
 
 ---
 
@@ -419,7 +447,7 @@ The project should reflect the owner's understanding and judgment.
 
 ### SUP-30 — AI-Generated Content Must Be Reviewed
 
-Any AI-supported artifact should be reviewed, adjusted, and understood before being accepted.
+Any AI-supported artifact should be reviewed, adjusted when necessary, and understood before being accepted.
 
 #### Rationale
 
@@ -439,63 +467,73 @@ The product domain has ethical sensitivity.
 
 ### SUP-32 — No Legal Advice Claim
 
-KUNNA should not present itself as a formal legal advice tool during early phases.
+KUNNA should not present itself as a formal legal advice tool.
 
 #### Rationale
 
-Children's rights content may involve legal concepts, but the product should be careful about its claims.
+Children's rights content may involve legal concepts, but the product should be careful about its claims and boundaries.
 
 ---
 
 ### SUP-33 — Colombian Context Should Be Treated Carefully
 
-If Colombian domain context is used, it should be researched and cited properly in future content work.
+If Colombian domain context is used, it should be researched and cited properly in content work.
 
 #### Rationale
 
 Domain-specific claims should be accurate and responsible.
 
-## Future Architecture Considerations
+## Architecture Questions for Elaboration
 
-The following architecture-related concerns are not resolved yet:
+Several architecture-related concerns remain unresolved:
 
-- Whether the first implementation will be a console Java application, desktop simulation, web prototype, or API.
-- Whether saved content will be stored in memory, file storage, local database, or backend database.
-- Whether authentication will be required for bookmarks.
-- Whether content will be static, local, or managed through an admin interface.
-- Whether audio files will be local assets or remote resources.
-- Whether downloads will be simulated or implemented with real file handling.
+- What execution boundary is sufficient for the selected I2 vertical slice.
+- Whether the selected behavior requires persistence or can initially remain in memory.
+- Whether authentication is required by the selected behavior.
+- How content needed by the selected slice should be represented or supplied.
+- Whether external files, audio, downloads, or services are relevant to the selected use case.
+- Which quality attributes materially influence the architecture hypothesis.
 
-These concerns should be addressed in future decision records or development planning documents.
+Not every question must be resolved during I2.
 
-## Out of Scope for This Phase
+Only decisions relevant to the selected use case, current risks, and validation strategy should be addressed.
 
-The following items are out of scope during the current Inception phase:
+Significant architecture decisions may be recorded through the Decision Journal or a dedicated ADR when warranted.
 
-- Production backend.
-- Spring Boot API.
-- Real database implementation.
+## Not Currently Assumed for I2
+
+The following capabilities or technical mechanisms are not automatically required during I2:
+
+- Production-ready backend.
+- Mandatory Spring Boot API.
+- Production database.
 - Authentication.
 - Password recovery.
 - User registration.
 - Admin dashboard.
-- Real content management system.
-- Mobile app implementation.
-- Deployment.
+- Production content management system.
+- Mobile application.
+- Production deployment.
 - Final UI redesign.
-- Real legal content validation.
+- Production-scale infrastructure.
+
+Any of these may be reconsidered if the selected use case or architecture validation strategy provides a concrete justification.
+
+Real legal or sensitive domain content validation also remains a separate evidence requirement and must not be fabricated merely to support implementation.
 
 ## Initial Quality Attribute Summary
 
-| Quality Attribute | Initial Expectation                                                          | Priority |
-| ----------------- | ---------------------------------------------------------------------------- | -------- |
-| Usability         | The product should be easy to understand and navigate.                       | High     |
-| Accessibility     | Content should be readable and audio may support access.                     | Medium   |
-| Reliability       | Content and saved items should behave predictably in future implementations. | Medium   |
-| Security          | Real personal data is out of scope during Inception.                         | High     |
-| Performance       | Content access should feel fast in future implementations.                   | Medium   |
-| Maintainability   | Documentation and code should remain organized and explainable.              | High     |
-| Traceability      | Artifacts should connect to Issues, PRs, and milestones.                     | High     |
+| Quality Attribute | Current Baseline Expectation                                                                            | Priority |
+| ----------------- | ------------------------------------------------------------------------------------------------------- | -------- |
+| Usability         | The product should be easy to understand and navigate when relevant to the selected behavior.           | High     |
+| Accessibility     | Content should be readable and alternative access methods may be considered when relevant.              | Medium   |
+| Reliability       | Implemented behavior should act predictably within the validated slice.                                 | Medium   |
+| Security          | Real sensitive personal data is not required for current I2 validation.                                 | High     |
+| Performance       | Performance expectations remain preliminary until relevant behavior and architecture needs are clearer. | Medium   |
+| Maintainability   | Documentation and code should remain organized and explainable.                                         | High     |
+| Traceability      | Relevant requirements, decisions, code, tests, Issues, and Pull Requests should remain connected.       | High     |
+
+These priorities remain provisional baseline values and may be reassessed when the selected I2 use case provides stronger evidence.
 
 ## Traceability with Use Cases
 
@@ -512,23 +550,32 @@ The following items are out of scope during the current Inception phase:
 | Privacy and profile data | Manage Profile                                          |
 | Documentation workflow   | All project artifacts                                   |
 
+This table preserves the initial I1 traceability baseline. It does not indicate which use case will be selected for I2.
+
 ## Open Questions
 
 The following questions remain open:
 
-- What minimum quality requirements should be applied to the first Java implementation?
-- Should the first Java version simulate content without persistence?
-- Should bookmarks require authentication in the future?
-- How should content sources be validated?
-- What accessibility requirements should be prioritized first?
-- Should audio content be part of the first construction iteration?
-- Should downloads be implemented or simulated initially?
-- What level of Colombian legal/domain context should be included in early versions?
+- Which supplementary requirements materially affect the architecturally significant use case selected for I2?
+- What minimum quality evidence should be produced by the I2 Java vertical slice?
+- Can the selected behavior be validated without persistence?
+- Does the selected behavior require authentication?
+- How should authoritative content sources be validated when sensitive domain content becomes relevant?
+- Which accessibility concerns materially affect the selected behavior?
+- Are audio, download, sharing, search, profile, or saved-content capabilities relevant to the selected I2 slice?
+- What level of Colombian legal or domain context is necessary for the selected behavior?
+- Which architecture assumptions should be validated through executable evidence?
+
+These questions should be narrowed after the architecturally significant use case is selected rather than answered globally in advance.
 
 ## Summary
 
-This supplementary specification defines initial cross-cutting requirements and constraints for KUNNA.
+This supplementary specification preserves the initial cross-cutting baseline established during I1 while aligning it with **I2 — Elaboration**.
 
-It complements the use case model by documenting usability, accessibility, language, content, privacy, technical, documentation, AI collaboration, ethical, and future architecture considerations.
+It complements the use case model by documenting usability, accessibility, language, content, privacy, technical, documentation, AI collaboration, ethical, and architecture-related concerns.
 
-The main purpose is to avoid premature coding and provide a stronger foundation for future analysis, design, and implementation.
+The specification is intentionally provisional.
+
+During I2, only the supplementary requirements that materially affect the selected use case should be refined in greater detail.
+
+The purpose is to support focused analysis, architecture reasoning, executable validation, and traceability without requiring exhaustive upfront specification or predetermined technology choices.
