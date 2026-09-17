@@ -2,84 +2,122 @@
 
 ## Document Purpose
 
-This document defines the initial development plan for KUNNA as part of the **I1 — Inception Package**.
+This document maintains the current development plan for KUNNA.
 
-The purpose of this artifact is to describe how the project will move from product understanding to software engineering artifacts, design decisions, UML modeling, Java implementation, and future API development.
+The plan was initially created during **I1 — Inception Package** and is now updated for **I2 — Elaboration**.
 
-This plan keeps the project organized, realistic, and suitable as professional software engineering portfolio evidence.
+Its purpose is to describe the project's current phase, development direction, sequencing, and transition criteria without duplicating the detailed engineering practices defined in other artifacts.
+
+Detailed execution rules are defined primarily in:
+
+- `docs/05-risk-list.md`
+- `docs/07-development-framework.md`
+- `docs/08-ai-collaboration-policy.md`
+- `docs/09-decision-journal.md`
+- `backlog/product-backlog.md`
 
 ## Project Context
 
 KUNNA is a personal software engineering project based on an original UX/UI prototype.
 
-The goal is not only to build an application, but to document a complete engineering process that demonstrates:
+The prototype provides historical product context and candidate product ideas, but it is not treated as validated implementation scope or evidence of current user needs.
 
-- Product thinking.
+KUNNA is intended to demonstrate disciplined software engineering through:
+
+- Product reasoning.
 - Requirements analysis.
-- Use case modeling.
-- Supplementary requirements.
-- Risk identification.
-- UML and domain modeling.
+- Risk management.
+- Use-case-driven development.
+- Domain modeling.
 - Object-oriented analysis and design.
-- Design decisions.
+- Selective UML.
+- Architecture reasoning.
 - Java implementation.
-- Future API development with Spring Boot.
-- Professional GitHub workflow.
+- Automated testing.
+- Traceability.
+- Professional Git and GitHub practices.
+- Responsible AI-assisted collaboration.
+
+Professional portfolio value should emerge from credible engineering evidence.
+
+It must not determine product scope, architecture, technology selection, or artifact volume.
 
 ## Current Phase
 
 The project is currently in:
 
-**I1 — Inception Package**
+**I2 — Elaboration**
 
-This phase focuses on understanding the product, defining the initial scope, documenting the problem, identifying users, clarifying requirements, and preparing the repository before writing production code.
+The previous milestone, **I1 — Inception Package**, was completed and closed.
 
-The main goal of the Inception Package is to answer:
+I2 focuses on reducing the most important product, requirements, domain, and architecture uncertainties around one architecturally significant use case.
 
-- What is KUNNA?
-- Who is it for?
-- What problem does it address?
-- What should the first version focus on?
-- What risks should be controlled?
-- What documentation is needed before implementation?
-- What engineering evidence should the repository show?
+The phase combines focused analysis with executable validation.
+
+KUNNA will not attempt to complete the full product analysis or final architecture before implementation.
+
+Instead, I2 will establish sufficient understanding around one selected slice, formulate an explicit architecture hypothesis, implement a small Java vertical slice with automated tests, and use the resulting evidence to reassess risks and future direction.
 
 ## Development Strategy
 
-KUNNA follows a documentation-first and product-first development strategy.
+KUNNA follows a product-first, iterative, risk-driven, use-case-focused, and evidence-oriented development strategy.
 
-This means that the project does not start directly with code. Instead, it starts with a structured understanding of the product, the users, the requirements, and the engineering decisions needed to build it correctly.
+Documentation and implementation are complementary engineering activities.
 
-The strategy is based on the following principles:
+Documentation should be created or refined when it helps:
 
-- Understand the product before implementing features.
-- Define user goals before writing use cases.
-- Define use cases before designing internal logic.
-- Define constraints and quality attributes before implementation.
-- Use UML selectively when it improves clarity.
-- Use Java implementation only after the main analysis artifacts are clear.
-- Keep every artifact connected to the product vision.
-- Avoid overengineering and unnecessary documentation.
+- Clarify product intent.
+- Reduce current uncertainty.
+- Define relevant behavior.
+- Support an engineering decision.
+- Prepare meaningful implementation.
+- Preserve necessary traceability.
 
-## Development Phases
+Implementation should begin when there is enough understanding to make the experiment meaningful, not when every possible analysis artifact is complete.
 
-The project will be developed through incremental phases.
+Implementation evidence may cause requirements, models, risks, backlog priorities, or architecture assumptions to change.
 
-| Phase | Name              | Main Purpose                        | Main Output                                                      |
-| ----- | ----------------- | ----------------------------------- | ---------------------------------------------------------------- |
-| I1    | Inception Package | Define the product foundation       | Vision, goals, use cases, risks, backlog, glossary, decisions    |
-| E1    | Elaboration       | Analyze the domain and architecture | Domain model, system operations, contracts, design direction     |
-| C1    | Construction      | Implement the first Java version    | Core Java classes, services, tests, documentation                |
-| C2    | API Construction  | Expose functionality through an API | Spring Boot API, endpoints, validation, persistence              |
-| T1    | Transition        | Prepare portfolio presentation      | README, screenshots, diagrams, deployment notes, lessons learned |
+The project therefore follows these principles:
 
-## Phase I1 — Inception Package
+- Start from a product or engineering problem, not from a framework.
+- Work around a focused use case rather than elaborating the complete system.
+- Refine only requirements relevant to the current slice.
+- Use modeling selectively.
+- Treat architecture as a hypothesis until evidence supports it.
+- Use Java implementation during Elaboration to reduce uncertainty.
+- Use automated tests as evidence of meaningful behavior.
+- Introduce infrastructure only when a demonstrated need justifies it.
+- Preserve traceability from product intent to executable evidence.
+- Keep portfolio concerns subordinate to product and engineering justification.
 
-The Inception Package is the current focus.
+## Lifecycle Direction
 
-Its purpose is to create the initial project foundation before moving into deeper analysis or implementation.
+KUNNA uses lightweight lifecycle phases inspired by iterative and Unified Process practices.
 
-The expected artifacts are:
+These phases are not rigid sequential stages.
+
+Earlier artifacts may be refined when later evidence reveals new information.
+
+| Phase                  | Status    | Main Purpose                                                                                                | Main Evidence                                                                                                             |
+| ---------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| I1 — Inception Package | Completed | Establish the initial product and engineering baseline                                                      | Vision, goals, candidate use cases, supplementary requirements, risks, backlog, workflow, and initial decisions           |
+| I2 — Elaboration       | Current   | Reduce significant product, domain, requirements, and architecture risks                                    | Selected use case, focused analysis, architecture hypothesis, Java vertical slice, automated tests, and risk reassessment |
+| Construction           | Future    | Expand validated behavior incrementally                                                                     | Working product increments, tests, evolving design, and integration evidence                                              |
+| Transition             | Future    | Prepare a sufficiently mature increment for realistic use, delivery, deployment, demonstration, or feedback | Deployable or demonstrable increment, known limitations, release information, and feedback                                |
+
+Future phase names do not imply that corresponding GitHub milestones have already been approved.
+
+A future milestone should be created only when the project has enough evidence to define its scope and exit criteria responsibly.
+
+## I1 — Inception Package
+
+### Status
+
+**Completed**
+
+I1 established the initial product and engineering baseline before deeper analysis and implementation.
+
+Its principal artifacts include:
 
 - `README.md`
 - `docs/00-vision.md`
@@ -95,216 +133,256 @@ The expected artifacts are:
 - `backlog/product-backlog.md`
 - `decisions/ADR-0001-start-with-inception.md`
 
-The phase is complete when these artifacts describe a clear, coherent, and realistic foundation for the project.
+I1 remains historical and closed.
 
-## Phase E1 — Elaboration
+Normal refinement caused by learning during I2 does not reopen the milestone.
 
-The Elaboration phase will start after the Inception Package is complete.
+## I2 — Elaboration
 
-Its purpose is to transform the initial product understanding into more detailed software engineering artifacts.
+### Objective
 
-This phase may include:
+Reduce the most significant current risks through one focused, traceable, and executable product slice.
 
-- Domain model.
-- Conceptual classes.
-- Associations.
-- Attributes.
-- System sequence diagrams.
-- System operations.
-- Operation contracts.
-- Initial design model.
-- Selected GRASP pattern analysis.
-- Architecture decisions.
+I2 is not intended to:
 
-This phase will use Craig Larman's object-oriented analysis and design approach selectively.
+- Complete every use case.
+- Model the complete domain.
+- Define every operation contract.
+- Produce every possible UML diagram.
+- Finalize the complete architecture.
+- Build the complete product.
+- Reconstruct every screen from the original prototype.
+- Introduce infrastructure without demonstrated need.
+- Produce production-ready software.
 
-The goal is not to reproduce the entire book process mechanically. The goal is to use the parts that help clarify the design of KUNNA.
+### Approved Work
 
-## Phase C1 — Java Construction
+The current milestone contains eight approved GitHub Issues:
 
-The Java Construction phase will focus on implementing the first version of the domain logic.
+1. **#29 — Review the I1 baseline and reprioritize key risks.**
+2. **#30 — Select the architecturally significant use case for I2.**
+3. **#31 — Refine the selected use case and relevant supplementary requirements.**
+4. **#32 — Create a focused Domain Model and identify system operations.**
+5. **#33 — Define the initial architecture hypothesis and validation strategy.**
+6. **#34 — Build the first executable Java vertical slice with automated tests.**
+7. **#35 — Evaluate the vertical slice and reassess architectural risks.**
+8. **#36 — Assess I2 exit criteria and decide transition to Construction.**
 
-This phase may include:
+Their current order reflects dependencies and risk reduction.
 
-- Java domain classes.
-- Services or use case handlers.
-- Basic validation.
-- Unit tests.
-- Simple command-line or test-based interaction.
-- Object-oriented design improvements.
-- Documentation of implementation decisions.
+It does not define a one-way waterfall.
 
-The first Java version should prioritize clarity over complexity.
+Evidence produced by later work may require earlier requirements, models, risks, backlog items, or architecture assumptions to be refined.
 
-The goal is to show that the analysis artifacts can lead to understandable code.
+### Analysis Scope
 
-## Phase C2 — API Construction
+Analysis should remain limited to what is necessary for the selected use case.
 
-The API Construction phase will introduce Spring Boot after the core domain understanding is clear.
+Depending on the problem and risk, I2 may use:
 
-This phase may include:
+- Refined use case scenarios.
+- Relevant supplementary requirements.
+- Business rules.
+- A focused Domain Model.
+- System events and system operations.
+- System Sequence Diagrams when useful.
+- Operation contracts when additional state-change precision is necessary.
+- GRASP or interaction reasoning when software responsibilities require clarification.
 
-- REST API structure.
-- Controllers.
-- Services.
-- DTOs.
-- Validation.
-- Error handling.
+These techniques are selective.
+
+Their detailed use is governed by `docs/07-development-framework.md`.
+
+### Architecture and Executable Validation
+
+Architecture during I2 should begin as an explicit hypothesis rather than as a presumed final structure.
+
+The hypothesis should include only the decisions necessary to support the selected slice and reduce relevant risks.
+
+It must be evaluated through a small executable Java vertical slice.
+
+The slice should be:
+
+- Focused on the selected use case.
+- Small enough to understand and review.
+- Traceable to relevant requirements and decisions.
+- Executable.
+- Automatically verified where meaningful.
+- Sufficient to provide evidence about the architecture hypothesis.
+
+The first slice is not required to be production-ready.
+
+It may intentionally omit mechanisms such as:
+
+- Web delivery.
 - Persistence.
-- API documentation.
-- Integration with the domain model.
+- Authentication.
+- External services.
+- Final UI.
+- Deployment infrastructure.
 
-Spring Boot should not be introduced too early. It will be used when the project already has enough product and domain clarity.
+Those mechanisms should be introduced only when the selected behavior or validation strategy demonstrates a concrete need.
 
-## Phase T1 — Transition and Portfolio Preparation
+### Evidence and Feedback
 
-The Transition phase will prepare the project as professional portfolio evidence.
-
-This phase may include:
-
-- Final README improvements.
-- Architecture summary.
-- Screenshots.
-- Diagrams.
-- Project walkthrough.
-- Lessons learned.
-- Technical decisions summary.
-- Professional narrative for GitHub and LinkedIn.
-- Explanation of the software engineering process.
-
-The goal is to make the repository understandable for reviewers, recruiters, mentors, or technical interviewers.
-
-## Development Workflow
-
-The project uses a professional GitHub-based workflow.
-
-Each relevant change should follow this process:
-
-1. Select one issue from the GitHub Project board.
-2. Move the issue to **In Progress**.
-3. Create a dedicated branch from `main`.
-4. Work on only one artifact or topic at a time.
-5. Commit the change with a clear Conventional Commit message.
-6. Push the branch to GitHub.
-7. Create a pull request connected to the issue.
-8. Review the changes.
-9. Merge the pull request into `main`.
-10. Pull the latest `main` branch locally.
-11. Delete the completed local and remote branch.
-12. Move the issue to **Done**.
-
-## Branch Naming Rule
-
-Branches should describe the type and purpose of the work.
-
-Examples:
-
-- `docs/initial-readme`
-- `docs/initial-project-vision`
-- `docs/initial-user-goals`
-- `docs/initial-use-case-model`
-- `docs/initial-supplementary-specification`
-- `docs/initial-glossary`
-- `docs/initial-risk-list`
-- `docs/initial-development-plan`
-
-For future implementation work, branch names may use prefixes such as:
-
-- `feat/`
-- `fix/`
-- `test/`
-- `refactor/`
-- `docs/`
-
-## Commit Rule
-
-Commits should use clear Conventional Commit messages.
-
-Examples:
-
-- `docs: improve initial README`
-- `docs: write initial project vision`
-- `docs: define initial user goals`
-- `docs: create initial use case model`
-- `docs: write supplementary specification`
-- `docs: create initial glossary`
-- `docs: create initial risk list`
-- `docs: create initial development plan`
-
-The commit message should explain what changed, not the entire history of the task.
-
-## Pull Request Rule
-
-Each pull request should be connected to a GitHub issue.
-
-The pull request description should include:
-
-- Summary.
-- Related issue.
-- Type of change.
-- Acceptance criteria.
-- Notes.
-
-The pull request should use closing keywords such as:
+The intended I2 feedback path is:
 
 ```text
-Closes #issue-number
+Selected use case
+↓
+Relevant requirements and business rules
+↓
+Focused domain analysis
+↓
+Architecture hypothesis
+↓
+Executable Java vertical slice
+↓
+Automated verification
+↓
+Observed evidence
+↓
+Risk and backlog reassessment
 ```
 
-This allows GitHub to close the related issue automatically after the pull request is merged.
+Implementation is therefore part of the learning process.
 
-## Definition of Done
+Evidence may cause previous assumptions or artifacts to change.
 
-An artifact or task is considered done when:
+### I2 Exit Criteria
 
-- The document or change is completed.
-- The content is connected to KUNNA's product vision.
-- The result is clear enough to be understood later.
-- The change is committed with a clear message.
-- The branch is pushed to GitHub.
-- A pull request is created.
-- The pull request is merged into main.
-- The related issue is closed.
-- The project board is updated.
-- The local repository is synchronized with GitHub.
-- The temporary branch is deleted.
+Completion of all eight Issues does not automatically justify transition to Construction.
 
-## Use of UML and Larman's Approach
+Issue #36 must evaluate the evidence produced during Elaboration.
 
-KUNNA will use UML and Craig Larman's object-oriented analysis and design approach selectively.
+The project should have sufficient evidence that:
 
-The project may use concepts such as:
+- The selected use case is understood well enough for incremental expansion.
+- Relevant domain concepts are identified.
+- Important system operations are understood.
+- Relevant supplementary requirements are sufficiently clear.
+- The architecture hypothesis has been exercised through executable Java behavior.
+- Automated tests provide meaningful verification.
+- Significant risks have been reduced, accepted, deferred, or explicitly carried forward.
+- The backlog reflects current knowledge and evidence.
+- Remaining uncertainty does not justify another focused Elaboration experiment before broader implementation.
 
-- Use cases.
-- System operations.
-- Operation contracts.
-- Domain model.
-- Conceptual classes.
-- Associations.
-- Attributes.
-- Postconditions.
-- Interaction diagrams.
-- GRASP principles.
-- Design patterns.
+If these conditions are not met, additional Elaboration work may be appropriate.
 
-However, these tools will only be used when they help explain, analyze, or design the system.
+## Construction
 
-The project will avoid creating UML diagrams or contracts only for formality.
+Construction will expand software behavior incrementally from decisions that have already received some executable validation.
+
+Construction does not mean that analysis, modeling, architecture, or risk management stop.
+
+Future Construction work may include:
+
+- Additional Java use case slices.
+- Expanded domain behavior.
+- Application coordination.
+- Automated tests.
+- Persistence when durable state is required.
+- External services when justified.
+- Delivery interfaces.
+- Refactoring based on implementation evidence.
+- Updated architecture decisions and documentation.
+
+Construction should produce small, demonstrable increments rather than one large implementation effort.
+
+## Technology Direction
+
+Java remains the primary implementation language.
+
+Spring Boot is not an approved mandatory phase or inevitable next technology.
+
+An API is also not assumed to be required.
+
+Spring Boot, REST interfaces, persistence, authentication, databases, external services, or similar infrastructure may be introduced only when a concrete product, integration, delivery, or architectural need justifies them.
+
+Before adopting a significant technology, the project should be able to explain:
+
+- What problem it solves.
+- Which behavior requires it.
+- Which risk it reduces or introduces.
+- Whether a simpler alternative is sufficient.
+- What additional complexity it creates.
+- Whether the decision deserves an ADR.
+
+Technology adoption should follow evidence rather than framework familiarity or portfolio expectations.
+
+## Transition
+
+Transition prepares a sufficiently mature increment for realistic use, delivery, deployment, demonstration, or feedback.
+
+Possible work may include:
+
+- Stabilization.
+- Defect correction.
+- Deployment validation.
+- Usability and accessibility review.
+- Security review appropriate to implemented scope.
+- User or stakeholder feedback.
+- Release information.
+- Known limitations.
+- Onboarding or usage instructions.
+- Updated repository documentation.
+- Demonstration material.
+- Portfolio explanation.
+
+Transition is therefore broader than portfolio preparation.
+
+Portfolio communication should accurately represent the engineering work that actually occurred.
+
+## Execution and Governance
+
+The detailed execution workflow is defined by the Development Framework and the current backlog.
+
+The current Project board workflow is:
+
+```text
+Backlog → Ready → In Progress → Review → Done
+```
+
+Meaningful work should remain traceable through:
+
+```text
+Issue
+↓
+Branch
+↓
+Focused commits
+↓
+Pull request
+↓
+Validation
+↓
+Merge
+↓
+Issue closure
+```
+
+For Markdown changes, the current quality controls include rendered Preview review and `git diff --check`.
+
+The complete workflow should not be duplicated in this plan.
 
 ## Scope Control
 
-To keep the project realistic, the following limits apply:
+To keep KUNNA realistic:
 
-- Do not start coding before the Inception Package is complete.
-- Do not introduce Spring Boot before the core domain understanding is clear.
-- Do not create diagrams that do not support analysis or design.
-- Do not document features that are not connected to user goals.
-- Do not expand the product scope without updating the backlog and risk list.
-- Do not treat the original UX/UI prototype as final implementation scope.
-- Do not prioritize visual polish before software engineering clarity.
-- Initial Work Order
+- Do not reopen I1 for normal I2 refinements.
+- Do not elaborate the complete product before implementing the selected slice.
+- Do not create UML diagrams or contracts mechanically.
+- Do not treat prototype capabilities as validated requirements.
+- Do not introduce infrastructure without demonstrated need.
+- Do not design for hypothetical future scale without evidence.
+- Do not allow portfolio value to override product or engineering reasoning.
+- Do not treat repository organization as a substitute for executable evidence.
+- Do not allow AI-assisted output to bypass human understanding and verification.
+- Keep the current slice small enough to explain, test, review, and learn from.
 
-## The recommended work order is:
+## Historical I1 Work Order
+
+The original Development Plan proposed the following Inception work order:
 
 1. Repository structure.
 2. README.
@@ -321,24 +399,38 @@ To keep the project realistic, the following limits apply:
 13. Product backlog.
 14. ADR-0001.
 
-This order helps the project move from general understanding to more detailed engineering planning.
+This list records the **original planned work order**, not necessarily the exact order in which all GitHub Issues were eventually completed.
+
+It is retained only as historical context and does not define future phase sequencing.
 
 ## Portfolio Value
 
-This development plan supports the professional value of the repository.
+This development plan supports the professional value of KUNNA by making its evolution explainable.
 
-It shows that KUNNA is not only a personal idea, but a structured software engineering project with:
+Useful evidence includes:
 
-- Clear planning.
+- Product reasoning.
+- Risk-driven prioritization.
+- Selective analysis and modeling.
 - Traceable decisions.
-- Incremental progress.
-- Requirements discipline.
-- Technical restraint.
-- GitHub workflow practice.
-- Connection between product thinking and implementation.
+- Focused Git history.
+- Pull requests.
+- Java implementation.
+- Automated tests.
+- Architecture hypotheses and validation.
+- Documented trade-offs.
+- Evidence-based iteration.
 
-## Next Step
+Portfolio value should result from the engineering process that actually occurred rather than from maximizing the number of artifacts or technologies shown.
 
-After this development plan, the project should continue with the development framework.
+## Current Next Step
 
-The development framework will explain the engineering approach, methods, concepts, and practices that guide the project in more detail.
+The current active work item is:
+
+**GitHub Issue #29 — Review the I1 baseline and reprioritize key risks.**
+
+This Development Plan is being updated because the previous version still described I1 as the active phase and separated Elaboration from the first executable Java evidence.
+
+After Issue #29 is completed, Issue #30 may be prepared for execution:
+
+**Select the architecturally significant use case for I2.**

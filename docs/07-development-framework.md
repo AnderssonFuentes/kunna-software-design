@@ -2,9 +2,11 @@
 
 ## Document Purpose
 
-This document defines the initial development framework for KUNNA as part of the **I1 — Inception Package**.
+This document defines the development framework for KUNNA.
 
-The purpose of this artifact is to establish the engineering principles, process structure, modeling practices, quality controls, and collaboration rules that will guide the project from product understanding to implementation.
+The framework was initially established during the **I1 — Inception Package** and remains active during **I2 — Elaboration**.
+
+The purpose of this artifact is to establish the engineering principles, process structure, modeling practices, quality controls, and collaboration rules that guide the project from product understanding to implementation and validation.
 
 This framework complements the development plan by explaining not only what stages the project will follow, but also how engineering work will be performed within those stages.
 
@@ -22,7 +24,7 @@ This framework applies to:
 - UML modeling.
 - Architecture decisions.
 - Java implementation.
-- Future API development with Spring Boot.
+- APIs and Spring Boot when justified by a concrete application need.
 - Testing.
 - Technical documentation.
 - Git and GitHub collaboration.
@@ -52,7 +54,7 @@ The framework is inspired by:
 
 KUNNA does not attempt to reproduce the complete Unified Process.
 
-Instead, it adapts useful practices to the scale, learning goals, portfolio purpose, and technical reality of the project.
+Instead, it adapts useful practices to the scale, learning goals, current risks, and technical reality of the project.
 
 ## Core Engineering Principles
 
@@ -100,6 +102,8 @@ Each iteration should produce one or more verifiable outcomes, such as:
 - A documented learning result.
 
 The project should avoid large, unreviewed changes that combine unrelated concerns.
+
+Implementation evidence may cause earlier requirements, models, risks, or design assumptions to be refined.
 
 ### 4. Risk-Driven Work
 
@@ -164,7 +168,7 @@ The amount of modeling should be proportional to:
 - Complexity.
 - Risk.
 - Learning value.
-- Portfolio value.
+- Need for validation.
 - Need for communication.
 - Need for traceability.
 
@@ -201,7 +205,7 @@ Important project elements should be traceable from product intent to implementa
 
 A typical traceability path is:
 
-```
+```text
 Product vision
 ↓
 User goals
@@ -262,13 +266,21 @@ These phases are not rigid sequential stages.
 
 The project may revisit earlier artifacts when new information appears.
 
+The current project phase is:
+
+**I2 — Elaboration**
+
 ## Phase 1 — Inception
+
+### Status
+
+**Completed**
 
 ### Objective
 
 Establish the initial direction, scope, vocabulary, risks, and working method of the project.
 
-Main Questions
+### Main Questions
 
 - What is KUNNA?
 - Which problem does it address?
@@ -297,80 +309,115 @@ Main Questions
 
 ### Exit Criteria
 
-The Inception phase may be considered complete when:
+The Inception phase was considered complete when:
 
-- The product purpose is understandable.
-- Target users are identified.
-- Initial scope boundaries exist.
-- Candidate use cases are documented.
-- Important quality requirements are identified.
-- Major risks are visible.
-- The next iteration can be planned.
-- The project has an explicit engineering workflow.
+- The product purpose was understandable.
+- Target users were identified.
+- Initial scope boundaries existed.
+- Candidate use cases were documented.
+- Important quality requirements were identified.
+- Major risks were visible.
+- The next iteration could be planned.
+- The project had an explicit engineering workflow.
+
+Normal refinements discovered during I2 do not reopen the completed I1 milestone.
 
 ## Phase 2 — Elaboration
 
+### Status
+
+**Current**
+
 ### Objective
 
-Reduce the most important product, requirements, domain, and architecture risks.
+Reduce the most important product, requirements, domain, and architecture risks through focused analysis and executable validation.
 
-- Expected Activities
-- Refine priority use cases.
+Elaboration in KUNNA is not analysis-only.
+
+The current I2 milestone includes the first executable Java vertical slice with automated tests so that important architecture and design assumptions can be evaluated through evidence.
+
+### Expected Activities
+
+- Refine the selected architecturally significant use case.
 - Write detailed use case scenarios selectively.
+- Refine relevant supplementary requirements.
 - Identify system events.
 - Create system sequence diagrams where useful.
-- Define operation contracts for complex operations.
-- Develop the domain model.
+- Define operation contracts for complex operations when necessary.
+- Develop a focused domain model.
 - Identify important business rules.
-- Validate the conceptual architecture.
+- Define an initial architecture hypothesis.
 - Explore technical feasibility.
-- Create architectural decision records.
-- Build small technical or product prototypes when necessary.
+- Create architectural decision records when justified.
+- Build a small executable Java vertical slice.
+- Add meaningful automated tests.
+- Evaluate the resulting implementation evidence.
+- Reassess risks, requirements, models, architecture assumptions, and backlog priorities when necessary.
 
 ### Expected Outputs
 
-- Refined use cases.
-- Initial domain model.
-- System sequence diagrams.
+- Refined selected use case.
+- Focused domain model.
+- System operations.
+- System sequence diagrams where useful.
 - Selective operation contracts.
-- Architecture baseline.
-- Updated supplementary requirements.
+- Architecture hypothesis.
+- Relevant updated supplementary requirements.
+- Executable Java vertical slice.
+- Automated tests.
 - Updated risk list.
-- Prioritized construction backlog.
+- Updated backlog priorities.
+- Relevant decision records.
+
+These outputs are selective and depend on the needs and risks of the selected use case.
+
+Elaboration does not require every possible UML or analysis artifact.
 
 ### Exit Criteria
 
 Elaboration may be considered complete when:
 
-- The highest-risk product flows are understood.
-- Core domain concepts are identified.
+- The selected high-risk product flow is sufficiently understood.
+- Relevant domain concepts are identified.
 - Important system operations are known.
-- Major architecture risks have been reduced.
-- Construction work can begin without relying on major unresolved assumptions.
+- Relevant supplementary requirements are sufficiently clear.
+- The architecture hypothesis has been exercised through executable Java behavior.
+- Automated tests provide meaningful verification.
+- Major architecture risks have been reduced, accepted, deferred, or explicitly carried forward.
+- The backlog reflects current evidence.
+- Remaining uncertainty does not justify another focused Elaboration experiment before broader implementation.
+
+Completion of the current I2 work items does not automatically require transition to Construction.
+
+The transition decision should be based on the evidence produced during Elaboration.
 
 ## Phase 3 — Construction
 
 ### Objective
 
-Implement the software incrementally while preserving traceability, design quality, and testability.
+Expand the software incrementally while preserving traceability, design quality, and testability.
+
+Construction builds on architecture and design decisions that have already received some executable validation during Elaboration.
+
+It is not the first point at which implementation begins.
 
 ### Expected Activities
 
-- Implement domain behavior in Java.
+- Implement additional domain behavior in Java.
 - Apply object-oriented responsibility assignment.
 - Create application services where coordination is required.
 - Add automated tests.
 - Refactor when design evidence justifies it.
 - Record important architectural decisions.
 - Maintain documentation and diagrams.
-- Integrate persistence and external services incrementally.
-- Introduce Spring Boot when the domain and application boundaries are sufficiently clear.
+- Integrate persistence and external services when justified.
+- Introduce Spring Boot only when it supports a demonstrated application, delivery, integration, or architecture need.
 
 ### Expected Outputs
 
 - Working Java increments.
 - Unit tests.
-- Integration tests.
+- Integration tests when relevant.
 - Updated design models.
 - Updated architecture documentation.
 - Demonstrable use case slices.
@@ -454,7 +501,7 @@ Examples:
 - Colombian domain considerations.
 - Technology constraints.
 
-### Primary artifact:
+### Primary Artifact
 
 - Supplementary specification.
 
@@ -489,6 +536,8 @@ A use case should receive more detail when:
 - It creates architectural risk.
 - It is difficult to explain or test.
 
+During I2, detailed refinement should remain focused on the selected architecturally significant use case rather than expanding the complete use case model.
+
 ## Operation Contract Strategy
 
 Operation contracts may be created for system operations that require greater analytical precision.
@@ -517,6 +566,8 @@ Contracts will be used selectively in KUNNA rather than for every system operati
 
 Architecture should emerge through deliberate decisions rather than premature framework configuration.
 
+During Elaboration, the initial architecture should be treated as a hypothesis that must be exercised rather than as a final structure defined completely in advance.
+
 The initial architecture should prioritize:
 
 - Clear domain concepts.
@@ -533,21 +584,27 @@ Likely architectural concerns include:
 - Domain logic.
 - Application coordination.
 - User interface.
-- Persistence.
-- External services.
+- Persistence when required.
+- External services when required.
 - Security.
 - Content delivery.
-- Future API boundaries.
+- API or integration boundaries when relevant.
 
-Spring Boot should be introduced when it supports a defined application need, not merely because it is part of the intended technology stack.
+The architecture hypothesis should be evaluated through executable behavior and automated verification.
+
+Implementation evidence may support, refine, or reject parts of the hypothesis.
+
+Spring Boot should be introduced when it supports a defined application need, not merely because Java is the primary implementation language or because the technology may have portfolio value.
 
 ## Implementation Strategy
 
-Implementation should begin with the smallest useful vertical or behavioral slice.
+Implementation should begin with the smallest useful vertical or behavioral slice once there is enough understanding to make the implementation meaningful.
+
+Implementation may begin during Elaboration when its purpose is to validate behavior, responsibility assignments, or architecture assumptions.
 
 A typical implementation path may be:
 
-```
+```text
 Use case
 ↓
 System operation
@@ -556,10 +613,12 @@ Domain behavior
 ↓
 Application coordination
 ↓
-Infrastructure integration
+Necessary infrastructure integration, if any
 ↓
 Automated verification
 ```
+
+The resulting evidence may cause requirements, models, design decisions, architecture assumptions, or risks to be refined.
 
 Java implementation should prioritize:
 
@@ -575,7 +634,7 @@ Java implementation should prioritize:
 
 Testing should be proportional to risk and behavior.
 
-Unit Testing
+### Unit Testing
 
 Used for:
 
@@ -595,6 +654,8 @@ Used for:
 - API behavior.
 - Component collaboration.
 
+Integration tests should be introduced when those integration boundaries actually exist.
+
 ### Acceptance-Oriented Testing
 
 Used to verify:
@@ -603,6 +664,10 @@ Used to verify:
 - Acceptance criteria.
 - Important user flows.
 - Product rules.
+
+Tests provide evidence about implemented behavior.
+
+They do not independently prove product validity, requirement correctness, architecture quality, user acceptance, or domain-content correctness.
 
 ### Documentation Review
 
@@ -614,14 +679,16 @@ Documentation should also be reviewed for:
 - Outdated assumptions.
 - Alignment with the product vision.
 
-### Git and GitHub Workflow
+## Git and GitHub Workflow
 
 KUNNA uses the following standard workflow:
 
-```
+```text
 Issue
 ↓
-Project board status
+Ready
+↓
+In Progress
 ↓
 Feature or documentation branch
 ↓
@@ -637,20 +704,25 @@ Merge into main
 ↓
 Issue closure
 ↓
+Done
+↓
 Branch deletion
 ```
+
+The detailed operational sequence is maintained in `docs/06-development-plan.md`.
 
 ### Branch Naming
 
 Examples:
 
-```
-docs/initial-project-vision
-docs/initial-use-case-model
-docs/initial-development-framework
-feature/save-bookmark
-test/bookmark-service
-refactor/content-domain
+```text
+elaboration/review-i1-baseline-risks
+analysis/refine-selected-use-case
+architecture/validate-initial-hypothesis
+implementation/first-java-vertical-slice
+docs/update-development-framework
+test/verify-domain-rule
+refactor/simplify-responsibility
 ```
 
 ### Commit Style
@@ -659,12 +731,12 @@ KUNNA uses Conventional Commit-style messages.
 
 Examples:
 
-```
-docs: create initial development framework
-feat: add bookmark creation behavior
-test: cover bookmark validation
-refactor: simplify content selection
-fix: prevent duplicate bookmarks
+```text
+docs: update development framework for Elaboration
+feat: add selected domain behavior
+test: verify selected use case rule
+refactor: simplify domain responsibility
+fix: correct invalid state transition
 ```
 
 ### Pull Request Rules
@@ -680,9 +752,9 @@ A pull request should:
 - Be reviewed before merging.
 - Delete the branch after merge when appropriate.
 
-### Work Item Types
+## Work Item Types
 
-**Product Issue**
+### Product Issue
 
 Used for:
 
@@ -716,7 +788,7 @@ A decision task may result in:
 - A documented trade-off.
 - A rejected alternative.
 
-### Decision Management
+## Decision Management
 
 Important decisions should be documented when they:
 
@@ -726,7 +798,7 @@ Important decisions should be documented when they:
 - Select a significant technology.
 - Reject a plausible alternative.
 - Influence several future work items.
-  Are difficult to reverse.
+- Are difficult to reverse.
 
 ADRs should describe:
 
@@ -738,7 +810,7 @@ ADRs should describe:
 
 Smaller decisions may be recorded in the decision journal.
 
-### AI-Assisted Work
+## AI-Assisted Work
 
 AI tools may support:
 
@@ -762,11 +834,13 @@ The project owner must:
 - Preserve authorship and accountability.
 - Be able to explain the final decision.
 
-Detailed rules will be defined in the AI collaboration policy.
+Detailed rules are defined in:
 
-### Quality Gates
+`docs/08-ai-collaboration-policy.md`
 
-**Artifact Quality Gate**
+## Quality Gates
+
+### Artifact Quality Gate
 
 A documentation artifact is ready when:
 
@@ -818,11 +892,12 @@ A KUNNA work item is considered done when:
 - Temporary branches are removed when appropriate.
 - The project owner understands and can explain the result.
 
-### Practices to Avoid
+## Practices to Avoid
 
 KUNNA should avoid:
 
-- Coding before understanding the product problem.
+- Coding before understanding enough of the current product problem.
+- Completing all analysis before allowing executable feedback.
 - Creating every possible UML diagram.
 - Applying patterns without a real design problem.
 - Adding frameworks before they are needed.
@@ -836,7 +911,7 @@ KUNNA should avoid:
 - Confusing database tables with the domain model.
 - Confusing use cases with interface navigation.
 
-### Framework Evolution
+## Framework Evolution
 
 This framework is expected to evolve.
 
@@ -849,9 +924,9 @@ Changes may be introduced when:
 - The current process creates unnecessary overhead.
 - New team members or contributors require clearer rules.
 
-Significant changes to the framework should be documented through an issue, pull request, or ADR.
+Significant changes to the framework should be documented through an issue, pull request, or ADR when appropriate.
 
-### Portfolio Value
+## Portfolio Value
 
 This framework helps KUNNA demonstrate:
 
@@ -868,8 +943,16 @@ This framework helps KUNNA demonstrate:
 - Responsible AI collaboration.
 - Ability to explain technical decisions.
 
-### Next Step
+## Current Application
 
-After completing this development framework, the project should continue with the initial product backlog.
+This framework was established during I1 and remains applicable during **I2 — Elaboration**.
 
-The backlog will translate the product vision, user goals, use cases, risks, and engineering plan into prioritized and actionable work items.
+The main methodological evolution in I2 is that focused analysis and architecture reasoning are now deliberately connected to executable Java evidence and automated verification.
+
+The current active work item is:
+
+**GitHub Issue #29 — Review the I1 baseline and reprioritize key risks.**
+
+After Issue #29 is completed, the next planned I2 work item is:
+
+**GitHub Issue #30 — Select the architecturally significant use case for I2.**
