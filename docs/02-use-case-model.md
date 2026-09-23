@@ -19,7 +19,7 @@ The use cases recorded here are part of the I1 baseline.
 
 They should not all be interpreted as validated requirements, equally important current priorities, or guaranteed implementation commitments.
 
-The I2 baseline review preserves this model while clarifying which assumptions remain provisional before one architecturally significant use case is selected.
+The I2 baseline review preserves this model while clarifying provisional assumptions and recording the architecturally significant use case selected during Issue `#30`.
 
 ## Relationship with Previous Artifacts
 
@@ -57,9 +57,9 @@ The previous **I1 — Inception Package** milestone was completed and closed.
 
 During I2, the use case model should support focused risk reduction rather than expansion of the complete product scope.
 
-The next major decision is to select one architecturally significant use case and then refine only the behavior, supplementary requirements, domain concepts, system operations, and architecture concerns that materially affect that slice.
+Issue `#30` selects **UC-01 — View Content** as the architecturally significant use case for the first I2 increment.
 
-This document does not make that selection in advance.
+The next analysis work should refine only the behavior, supplementary requirements, domain concepts, system operations, and architecture concerns that materially affect that slice.
 
 ## Scope of the Use Case Model
 
@@ -595,9 +595,9 @@ The following rules govern how the criteria will be applied:
 - Selection of a use case must not preselect a framework, database, persistence mechanism, interface technology, deployment platform, or architecture style.
 - The selected use case will receive an initial scope boundary sufficient to guide focused refinement in `#31`, while detailed scenarios, supplementary requirements, domain concepts, system operations, and architecture decisions remain subsequent work.
 
-These criteria establish the decision framework only.
+These criteria established the decision framework before the use case selection was made.
 
-They do not select a use case in advance.
+The resulting decision is recorded below after the qualitative comparison.
 
 ## I2 Candidate Set and Qualitative Comparison
 
@@ -653,28 +653,150 @@ At this point:
 - UC-04 exposes substantial architectural uncertainty around state, persistence, identity, and privacy, but may introduce those concerns before they are needed for the core product behavior.
 - UC-10 supports product discovery and domain organization but overlaps materially with UC-01 and UC-02.
 
-A final selection still requires an explicit decision rationale, risk mapping, treatment of non-selected alternatives, and an initial scope boundary.
+The final selection is recorded in the next section with its rationale, risk mapping, treatment of non-selected alternatives, and initial scope boundary.
 
 No framework, database, interface technology, persistence mechanism, deployment platform, or architecture style is selected by this comparison.
 
+## Selected Architecturally Significant Use Case
+
+**Selected Use Case:** UC-01 — View Content
+
+**Primary Actor:** Caregiver
+
+**Related User Goals:**
+
+- UG-01 — Access child rights content.
+- UG-02 — Receive positive parenting guidance.
+
+**Related Backlog Capability:**
+
+- `KUNNA-PB-020 — View the details of a selected content item`.
+
+### Decision Rationale
+
+UC-01 — View Content is selected as the architecturally significant use case for the first I2 increment because it provides the strongest current balance of user value, domain learning, architectural significance, risk reduction, implementation feasibility, testability, and credible engineering evidence.
+
+The selection is not based on historical I1 priority, visual prominence in the original prototype, ease of implementation, or the attractiveness of a particular technology.
+
+UC-01 connects directly to the core KUNNA product direction: enabling caregivers to consult accessible information about children's rights, positive parenting, and daily caregiving practices.
+
+It also exposes one of the most important domain concerns in the project: content credibility and provenance. This makes the slice useful for learning about the actual KUNNA domain rather than primarily exercising a secondary interaction mechanism.
+
+From an architectural perspective, UC-01 is significant enough to exercise meaningful responsibilities and boundaries for obtaining and presenting a selected content item, while still allowing I2 to defer authentication, persistence, external integrations, production infrastructure, and final interface technology unless later evidence demonstrates a concrete need.
+
+The use case is also sufficiently small to support a focused executable Java vertical slice with automated tests, allowing the project to evaluate architecture through behavior rather than through documentation alone.
+
+### Risk Reduction Expected from the Selection
+
+The selection is expected to reduce or provide evidence against the following risks:
+
+| Risk Area                      | Relevant Risks | Expected Contribution                                                                                                                                                                              |
+| ------------------------------ | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Product                        | R01, R03       | Constrains I2 to one core product slice and avoids reproducing multiple prototype-derived capabilities without justification.                                                                      |
+| Domain                         | R09            | Forces explicit treatment of content provenance, credibility, and responsible handling for child-, caregiver-, and rights-related information.                                                     |
+| Technical / Architecture       | R08, R13       | Allows a meaningful executable slice without preselecting frameworks or infrastructure and provides evidence for later architecture validation.                                                    |
+| Traceability / Process         | R10            | Creates a direct path from vision and user goals through selected behavior, requirements, analysis, code, tests, and validation evidence.                                                          |
+| Learning / Engineering Process | R04, R05       | Requires the project owner to understand and verify the selected behavior while ensuring implementation begins only after enough slice-specific analysis exists to make the experiment meaningful. |
+
+Other active risks remain relevant to I2 but are not primary reasons for selecting UC-01.
+
+In particular, R14 — privacy remains active but is not expected to drive the first slice because UC-01 does not currently require personal data, authentication, or persistent user identity.
+
+R15 — requirements quality will be addressed in `#31` by refining only the supplementary requirements that materially affect UC-01.
+
+### Initial Scope Boundary
+
+The initial scope boundary is intentionally narrow.
+
+#### In Scope for the Selected Slice
+
+- A caregiver selects or requests one available KUNNA content item.
+- KUNNA provides the selected content item's relevant information for consultation.
+- The content belongs to the current KUNNA domain of children's rights, positive parenting, or daily caregiving practices.
+- The slice preserves traceability to UG-01 and UG-02.
+- Content credibility and provenance are treated as explicit domain and requirement concerns.
+- The behavior must be expressible through observable outcomes that can later be automated as tests.
+- The slice must be implementable without assuming infrastructure that the behavior does not require.
+
+#### Outside the Initial Scope
+
+The following behaviors remain outside the initial UC-01 slice unless later analysis demonstrates that one is strictly necessary to validate the selected behavior:
+
+- Daily-tip specialization.
+- Search or filtering.
+- Category browsing.
+- Bookmarking or saved-content behavior.
+- Audio playback.
+- Downloads.
+- Sharing.
+- Profile management.
+- Registration or authentication.
+- Persistent caregiver identity.
+- Production database persistence.
+- Administrative content-management workflows.
+- External integrations.
+- Production deployment.
+- Final user-interface implementation.
+
+Content provenance and validation are relevant to the selected slice, but Issue `#30` does not define a complete editorial, legal, clinical, psychological, or content-governance workflow.
+
+### Non-Selected Alternatives
+
+The other deeply compared candidates remain part of the product baseline but are not prioritized for the first I2 increment:
+
+- **UC-02 — View Daily Tip:** not selected because daily-tip behavior remains a prototype-derived hypothesis and may later prove to be a specialization of UC-01 rather than a distinct architectural driver.
+- **UC-03 — Search Content:** not selected because search is currently a supporting discovery capability and could shift early I2 work toward search mechanics or infrastructure before the core content behavior is sufficiently understood.
+- **UC-04 — Bookmark Content:** not selected because its architectural value comes largely from state, identity, persistence, and privacy concerns that are not yet necessary to exercise the core KUNNA product behavior.
+- **UC-10 — Browse Content Categories:** not selected because it overlaps materially with UC-01 and UC-02 and currently appears more useful as a navigation or content-organization concern than as the primary architectural driver.
+
+These alternatives are deferred, not rejected.
+
+They may be reconsidered when product evidence, the selected slice, or later iteration learning provides stronger justification.
+
+### Technology and Architecture Boundary
+
+This selection does **not** choose:
+
+- A framework.
+- Spring Boot.
+- An API style.
+- A database.
+- A persistence mechanism.
+- Authentication technology.
+- A frontend framework.
+- A final interface technology.
+- A deployment platform.
+- A specific architecture style.
+
+Those decisions remain subject to later analysis and architecture validation.
+
+### Handoff to Issue #31
+
+Issue `#31` should use UC-01 as its focused input.
+
+The next work should refine only:
+
+- The behavior and scenarios necessary to understand UC-01.
+- Supplementary requirements that materially affect UC-01.
+- Content-provenance and quality concerns relevant to the selected slice.
+- Assumptions and open questions that must be resolved before focused domain and system-operation analysis.
+
+Issue `#31` should not expand the selection into a complete product specification or prematurely define the final architecture.
+
 ## Open Questions
 
-The following questions remain open during I2:
+The following questions remain open after the Issue `#30` selection:
 
-- Which use case is architecturally significant enough to drive the current I2 slice?
-- Which user goal does that use case primarily support?
-- Which use cases overlap enough to require consolidation or reinterpretation?
-- Should UC-01, UC-02, and UC-10 remain distinct behaviors?
-- If saved-content behavior becomes relevant, should UC-04 and UC-05 be refined together?
-- Does the selected behavior require authentication or persistent user identity?
-- Does the selected behavior require persistence?
-- Is `Registered Caregiver` necessary as a distinct actor for the selected behavior?
-- Is any external supporting actor actually required?
-- Which supplementary requirements materially affect the selected use case?
-- Which architecture assumptions can be validated through the first executable Java vertical slice?
-- Which prototype capabilities should be deferred or discarded?
+- Which UC-01 scenarios are necessary for the first executable slice?
+- Which content concepts and rules are required to represent the selected behavior meaningfully?
+- Which content-provenance requirements are necessary for responsible validation of the slice?
+- Which supplementary requirements materially affect UC-01?
+- Which system operations are needed to express the selected behavior?
+- Which architecture assumptions should be tested through the first executable Java vertical slice?
+- Does any requirement discovered during refinement create a justified need for persistence, an external actor, or another technical mechanism?
+- How should the overlap among UC-01, UC-02, and UC-10 be refined without expanding the first slice?
 
-These questions should be narrowed during `#30` and subsequent I2 work rather than answered globally during the baseline review.
+These questions should be addressed selectively during `#31`, `#32`, and subsequent I2 work rather than answered globally.
 
 ## Current Use Case Model Position
 
@@ -682,17 +804,21 @@ The I1 use case model remains useful as a traceable candidate behavior baseline.
 
 UC-01 through UC-10 are not a mandatory feature list.
 
-Their initial priorities are historical planning inputs rather than the implementation sequence for I2.
+Their initial priorities remain historical planning inputs rather than the implementation sequence for I2.
 
-The model currently exposes several important areas for later refinement:
+Issue `#30` selects **UC-01 — View Content** as the architecturally significant use case for the first I2 increment.
 
-- Overlap among content-access use cases.
+The selection narrows the immediate product and engineering focus without discarding the remaining candidate use cases.
+
+The model still exposes areas that may require later refinement:
+
+- Overlap among UC-01, UC-02, and UC-10.
 - Dependence between saving and revisiting content.
 - Provisional guest and registered user distinctions.
 - Product assumptions inherited from the original prototype.
-- Unresolved authentication and persistence needs.
+- Unresolved authentication and persistence needs outside the selected slice.
 - Unconfirmed external supporting actors.
 
-The next I2 decision is to select one architecturally significant use case.
+The next I2 step is `#31 — Refine the selected use case and relevant supplementary requirements`.
 
-Only after that selection should the relevant behavior, supplementary requirements, domain model, system operations, and architecture concerns be refined in greater detail.
+Only UC-01 behavior and requirements that materially affect the selected slice should be refined at that stage.
