@@ -599,6 +599,64 @@ These criteria establish the decision framework only.
 
 They do not select a use case in advance.
 
+## I2 Candidate Set and Qualitative Comparison
+
+A limited candidate set is used for deeper comparison so that Issue `#30` can make a focused decision without treating all I1 use cases as equally relevant to the first Elaboration increment.
+
+The candidates are:
+
+- UC-01 — View Content.
+- UC-02 — View Daily Tip.
+- UC-03 — Search Content.
+- UC-04 — Bookmark Content.
+- UC-10 — Browse Content Categories.
+
+These candidates already exist in the I1 use case baseline and are traceable to current backlog capabilities:
+
+| Use Case                          | Existing Backlog Capability                                              |
+| --------------------------------- | ------------------------------------------------------------------------ |
+| UC-01 — View Content              | `KUNNA-PB-020 — View the details of a selected content item`             |
+| UC-02 — View Daily Tip            | `KUNNA-PB-026 — Present daily parenting tips`                            |
+| UC-03 — Search Content            | `KUNNA-PB-019 — Search and filter available content`                     |
+| UC-04 — Bookmark Content          | `KUNNA-PB-021 — Bookmark useful content`                                 |
+| UC-10 — Browse Content Categories | `KUNNA-PB-018 — Browse children's rights and positive-parenting content` |
+
+The remaining I1 use cases are not discarded. They are not compared in equal depth for this decision because they currently provide less direct leverage for the first I2 experiment or introduce dependencies that are better evaluated later:
+
+- UC-05 — View Saved Content depends conceptually on previously saved content and is therefore closely coupled to UC-04.
+- UC-06 — Play Audio Content remains a prototype-derived product hypothesis and alternative content format.
+- UC-07 — Download Resource can introduce delivery, storage, or file-handling concerns before those mechanisms are justified.
+- UC-08 — Share Content may introduce external integration concerns before sharing is sufficiently justified.
+- UC-09 — Manage Profile can introduce identity, authentication, persistence, and personal-data concerns before the selected behavior demonstrates a need for them.
+
+### Qualitative Comparison
+
+The comparison below applies the criteria defined above without numerical weighting.
+
+| Candidate                         | User Value                                                                                                                                         | Domain Learning                                                                                                                            | Architectural Significance                                                                                                                                                          | Risk Reduction                                                                                                                                                                                                                                                          | Implementation Feasibility                                                                                                                         | Testability                                                                                        | Portfolio Evidence                                                                                                                                                     |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| UC-01 — View Content              | Directly supports the core KUNNA purpose through UG-01 and UG-02 by enabling caregivers to access child-rights and positive-parenting information. | Exposes content meaning, credibility, provenance, and caregiver-oriented information in the core product domain.                           | Exercises meaningful content-access responsibilities and boundaries without inherently requiring authentication, persistence, external integration, or a production interface.      | Strongly relevant to R01, R03, R08, R09, R10, and R13 because it can constrain the first slice, challenge prototype assumptions, keep infrastructure minimal, expose sensitive-content provenance, preserve traceability, and provide executable architecture evidence. | Can be constrained to one focused content-access flow while deferring search, categories, bookmarks, profiles, and other surrounding capabilities. | Selection and access outcomes can be verified through clear behavior examples and automated tests. | Can demonstrate end-to-end traceability from vision and goals through analysis, implementation, and tests without requiring technology-driven scope.                   |
+| UC-02 — View Daily Tip            | Supports practical guidance through UG-02 and UG-09, but daily tips remain an unvalidated product hypothesis inherited from the original concept.  | Exposes caregiving-content concerns, although much of the domain learning overlaps with the broader content-access behavior of UC-01.      | May be architecturally meaningful if daily-tip behavior has distinct rules, but it may instead prove to be a specialized form of viewing content.                                   | Relevant to R03 and R09, while premature selection could also preserve a prototype-derived assumption that has not yet been validated.                                                                                                                                  | Relatively easy to constrain to a small slice.                                                                                                     | Short-tip access behavior can be verified clearly.                                                 | Can produce useful evidence, but may provide less architectural learning if later refinement collapses it into UC-01.                                                  |
+| UC-03 — Search Content            | Supports UG-03 and the candidate need to find relevant information efficiently.                                                                    | Can reveal topic, relevance, and content-classification concepts, but attention may shift quickly from the domain toward search mechanics. | Introduces query and retrieval responsibilities, while also creating a risk of prematurely selecting search, indexing, persistence, or infrastructure mechanisms.                   | Relevant to R03, R08, R10, and R13 because it can challenge prototype assumptions and exercise executable boundaries, but it can also increase technical scope prematurely.                                                                                             | Feasible if search behavior and the searchable content set are tightly constrained; otherwise scope can expand quickly.                            | Search criteria and returned results can be tested deterministically.                              | Can demonstrate clear technical behavior and automated tests, but technical attractiveness must not become the reason for selection.                                   |
+| UC-04 — Bookmark Content          | Supports UG-04 and the need to return to useful information later, although bookmarking is one possible solution to that broader need.             | Provides learning about saved state and continuity of use, with less direct exposure to KUNNA's core sensitive-content domain than UC-01.  | Strongly exposes questions about state, identity, persistence, and system boundaries.                                                                                               | Relevant especially to R08, R10, R13, and R14, but selecting it may also introduce persistence, identity, or privacy concerns earlier than necessary.                                                                                                                   | Feasible only if the slice avoids assuming authentication, databases, or production persistence before they are justified.                         | Bookmarking behavior can be expressed with clear state transitions and automated verification.     | Can demonstrate meaningful state-oriented design and testing, but has a higher risk of becoming infrastructure-driven.                                                 |
+| UC-10 — Browse Content Categories | Supports content access and discovery and is associated with UG-01, UG-02, and UG-09.                                                              | Can expose content taxonomy, categorization, and relationships among caregiver-oriented information.                                       | Exercises organization and navigation responsibilities, but substantially overlaps with UC-01 and UC-02 and may remain closer to navigation structure than an architectural driver. | Relevant to R01, R03, and R10 because it forces clarification of overlapping content-access behavior and preserves traceability.                                                                                                                                        | Can be constrained to a narrow slice without requiring authentication or persistence.                                                              | Category exploration and resulting content can be verified clearly.                                | Can provide useful traceability and implementation evidence, though it may expose less architectural tension than candidates involving core content handling or state. |
+
+### Comparison Position
+
+The comparison intentionally does not produce a numerical score or automatic winner.
+
+At this point:
+
+- UC-01 has the strongest direct connection to KUNNA's core product purpose and sensitive-content domain while remaining technically constrainable.
+- UC-02 is focused and feasible but may be a specialization of UC-01 rather than a distinct architectural driver.
+- UC-03 is clearly testable and technically meaningful but may shift I2 toward search mechanics before search is sufficiently justified.
+- UC-04 exposes substantial architectural uncertainty around state, persistence, identity, and privacy, but may introduce those concerns before they are needed for the core product behavior.
+- UC-10 supports product discovery and domain organization but overlaps materially with UC-01 and UC-02.
+
+A final selection still requires an explicit decision rationale, risk mapping, treatment of non-selected alternatives, and an initial scope boundary.
+
+No framework, database, interface technology, persistence mechanism, deployment platform, or architecture style is selected by this comparison.
+
 ## Open Questions
 
 The following questions remain open during I2:
