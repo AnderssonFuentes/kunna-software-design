@@ -563,6 +563,42 @@ This use case model supports the project by:
 
 The use case model should remain lightweight and should evolve only when additional analysis or evidence materially improves it.
 
+## I2 Architecturally Significant Use Case Selection Criteria
+
+Before one use case is selected to drive the first executable increment of I2, a limited set of existing KUNNA use cases will be evaluated using criteria defined in advance.
+
+The purpose of defining these criteria before the selection is to reduce confirmation bias and avoid justifying a preferred use case retrospectively.
+
+The evaluation criteria are:
+
+| Criterion                  | Evaluation Question                                                                                                                                                                                |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| User Value                 | Does the behavior directly support a meaningful caregiver outcome that is consistent with the current KUNNA vision and user goals?                                                                 |
+| Domain Learning            | Does the behavior expose useful domain concepts, rules, uncertainties, or content concerns related to children's rights, positive parenting, or caregiving?                                        |
+| Architectural Significance | Does the behavior exercise meaningful system responsibilities or boundaries and help reveal architecture concerns without requiring unjustified infrastructure?                                    |
+| Risk Reduction             | Can the behavior materially reduce one or more important active I2 product, domain, technical, learning, or process risks?                                                                         |
+| Implementation Feasibility | Can the behavior be constrained to a small, responsible, and executable vertical slice within I2 without expanding into unnecessary product scope?                                                 |
+| Testability                | Can the behavior produce observable outcomes that can be verified through clear acceptance conditions and meaningful automated tests?                                                              |
+| Portfolio Evidence         | Can the resulting work demonstrate credible and explainable software engineering reasoning, traceability, implementation, and testing without allowing portfolio value to determine product scope? |
+
+### Selection Rules
+
+The following rules govern how the criteria will be applied:
+
+- Candidates must already exist in the current KUNNA use case model and be traceable to the existing product baseline or backlog. Issue `#30` should not invent a new product requirement merely to create an attractive implementation candidate.
+- Only a limited set of relevant candidates should be compared in depth.
+- Historical I1 priority does not determine the I2 selection.
+- A use case should not be selected only because it appears easy to implement, visually attractive, technically familiar, or convenient for demonstrating a particular technology.
+- Portfolio evidence is a supporting criterion. It must not override user value, product reasoning, domain learning, risk reduction, or responsible engineering scope.
+- The comparison should remain qualitative unless stronger evidence justifies quantitative scoring. Arbitrary weighted scores should not create false precision.
+- The preferred candidate should provide a useful balance of user value, domain learning, architectural significance, risk reduction, feasibility, and testability.
+- Selection of a use case must not preselect a framework, database, persistence mechanism, interface technology, deployment platform, or architecture style.
+- The selected use case will receive an initial scope boundary sufficient to guide focused refinement in `#31`, while detailed scenarios, supplementary requirements, domain concepts, system operations, and architecture decisions remain subsequent work.
+
+These criteria establish the decision framework only.
+
+They do not select a use case in advance.
+
 ## Open Questions
 
 The following questions remain open during I2:
