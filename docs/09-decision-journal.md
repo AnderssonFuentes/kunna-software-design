@@ -234,6 +234,7 @@ Later entries extend the same journal as the project evolves.
 | DJ-006 | Use an issue, branch, pull request, merge, and cleanup workflow                 | Process        | Accepted | Not required               |
 | DJ-007 | Use AI as a support tool while preserving human responsibility                  | AI Governance  | Accepted | Not required               |
 | DJ-008 | Establish an executable architectural baseline during Elaboration               | Process        | Accepted | Not required               |
+| DJ-009 | Select UC-01 as the I2 architecturally significant use case                     | Product        | Accepted | Not required               |
 
 ---
 
@@ -851,6 +852,171 @@ Issue #35, during the I2 exit assessment in Issue #36, or earlier if
 implementation evidence shows that the current Elaboration strategy is
 ineffective.
 
+## DJ-009 — Select UC-01 as the I2 Architecturally Significant Use Case
+
+**Decision Date:** 2026-09-22
+**Recorded in Journal:** 2026-09-28
+**Status:** Accepted
+**Category:** Product
+
+### Context
+
+Issue `#30` required KUNNA to select one existing use case to drive the first
+executable increment of **I2 — Elaboration**.
+
+The I1 baseline contained several candidate use cases with historical
+priorities, but those priorities were not sufficient to determine the first
+I2 slice.
+
+Selecting a use case only because it appeared easy to implement, visually
+attractive, familiar from the original prototype, or useful for portfolio
+presentation would weaken product and engineering justification.
+
+A limited candidate set was therefore compared using criteria defined before
+the decision:
+
+- User value.
+- Domain learning.
+- Architectural significance.
+- Risk reduction.
+- Implementation feasibility.
+- Testability.
+- Portfolio evidence as a supporting, non-dominant criterion.
+
+The compared candidates were:
+
+- UC-01 — View Content.
+- UC-02 — View Daily Tip.
+- UC-03 — Search Content.
+- UC-04 — Bookmark Content.
+- UC-10 — Browse Content Categories.
+
+### Decision
+
+KUNNA selects **UC-01 — View Content** as the architecturally significant use
+case for the first I2 increment.
+
+The selected use case primarily supports:
+
+- UG-01 — Access child rights content.
+- UG-02 — Receive positive parenting guidance.
+
+It is also traceable to:
+
+- `KUNNA-PB-020 — View the details of a selected content item`.
+
+The initial slice will remain intentionally narrow.
+
+It will focus on a caregiver selecting or requesting one available KUNNA
+content item and obtaining the relevant information for consultation.
+
+The selection does not imply that search, daily tips, category browsing,
+bookmarking, profiles, authentication, persistence, external integrations,
+or other prototype-derived capabilities belong in the first executable
+slice.
+
+### Rationale
+
+UC-01 provides the strongest current balance between product value and
+engineering learning.
+
+It connects directly to KUNNA's core product direction by enabling caregivers
+to consult accessible information about children's rights, positive
+parenting, and daily caregiving practices.
+
+It also exposes an important domain concern: the credibility and provenance
+of child-, caregiver-, and rights-related content.
+
+From an engineering perspective, UC-01 is significant enough to exercise
+meaningful responsibilities and boundaries while remaining small enough to
+avoid preselecting frameworks, persistence, authentication, external
+integrations, or production infrastructure.
+
+The selection is expected to help reduce or provide evidence against:
+
+- R01 — uncontrolled product scope.
+- R03 — excessive influence from the original prototype.
+- R08 — premature infrastructure or framework adoption.
+- R09 — insufficient content provenance or validation.
+- R10 — loss of traceability.
+- R13 — architecture remaining theoretical without executable evidence.
+
+The decision also supports the learning and engineering-process concerns
+represented by R04 and R05 by requiring the selected behavior to remain
+understood, reviewable, and sufficiently refined before implementation.
+
+The alternatives remain valid product hypotheses but are not prioritized for
+the first I2 increment:
+
+- UC-02 may later prove to be a specialization of UC-01.
+- UC-03 may introduce search mechanics before the core content behavior is
+  sufficiently understood.
+- UC-04 derives much of its architectural significance from state,
+  persistence, identity, and privacy concerns that are not yet necessary for
+  the core slice.
+- UC-10 overlaps materially with UC-01 and UC-02 and currently behaves more
+  like a navigation or content-organization concern than the primary
+  architectural driver.
+
+### Consequences
+
+Positive consequences:
+
+- I2 now has one explicit use case to drive focused refinement.
+- Product, domain, architecture, implementation, and testing work can share a
+  common traceability anchor.
+- The first executable slice can remain technically small while still
+  addressing meaningful product and domain concerns.
+- Sensitive-content provenance becomes an explicit concern for subsequent
+  requirements work.
+- Search, persistence, authentication, profiles, and other surrounding
+  capabilities can remain deferred until evidence demonstrates a need.
+
+Potential consequences and trade-offs:
+
+- UC-01 still overlaps with UC-02 and UC-10, so later refinement may change
+  their boundaries or interpretation.
+- The first slice intentionally does not exercise persistence, identity, or
+  external integrations.
+- Selecting UC-01 does not validate the broader product concept or prove that
+  all content-access assumptions are correct.
+- Later analysis or executable evidence may show that the selected scope must
+  be narrowed, refined, or reconsidered.
+- Non-selected use cases remain deferred rather than rejected.
+
+### Related Artifacts
+
+- `docs/00-vision.md`
+- `docs/01-user-goals.md`
+- `docs/02-use-case-model.md`
+- `docs/05-risk-list.md`
+- `backlog/product-backlog.md`
+- Git commit `30fbfe6`.
+- GitHub Issue #30.
+- GitHub milestone `I2 — Elaboration`.
+
+### Related ADR
+
+Not required.
+
+This is a product-scope and iteration-driving decision.
+
+Architecture decisions discovered during Issue #33 or later work should
+receive their own ADR only when their significance and durability justify a
+standalone record.
+
+### Review Trigger
+
+Review this decision during Issue #31 if focused use case and supplementary
+requirement refinement shows that UC-01 cannot produce a coherent and
+meaningful first slice.
+
+Review it again after the executable vertical slice is evaluated in Issue
+#35, or earlier if new product, domain, or implementation evidence materially
+changes the assumptions that justified the selection.
+
+---
+
 ## Journal Maintenance Rules
 
 The journal should remain useful and concise.
@@ -912,15 +1078,19 @@ The decision journal was established during I1 and remains active during
 
 The most recent accepted decision is:
 
-**DJ-008 — Establish an Executable Architectural Baseline During Elaboration.**
+**DJ-009 — Select UC-01 as the I2 Architecturally Significant Use Case.**
 
 The current active work item is:
 
-**GitHub Issue #29 — Review the I1 baseline and reprioritize key risks.**
-
-After Issue #29 is completed, the next planned I2 work item is:
-
 **GitHub Issue #30 — Select the architecturally significant use case for I2.**
+
+Issue #30 has selected **UC-01 — View Content** and remains active until the
+result is fully reviewed, integrated, and verified against its acceptance
+criteria.
+
+After Issue #30 is completed, the next planned I2 work item is:
+
+**GitHub Issue #31 — Refine the selected use case and relevant supplementary requirements.**
 
 `decisions/ADR-0001-start-with-inception.md` already exists and remains the
 ADR associated with DJ-001.
