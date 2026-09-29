@@ -143,8 +143,8 @@ Their order reflects dependencies and risk reduction rather than a rigid waterfa
 
 | Order | GitHub Issue | Work Item                                                            | Primary Outcome                                                                                 | Main Risk Drivers            | Status      |
 | ----: | -----------: | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ---------------------------- | ----------- |
-|     1 |          #29 | Review the I1 baseline and reprioritize key risks                    | Reliable and current baseline for I2                                                            | R01, R02, R03, R08, R10, R11 | In Progress |
-|     2 |          #30 | Select the architecturally significant use case for I2               | One explicitly justified use case selected for Elaboration                                      | R01, R03, R09, R11           | Backlog     |
+|     1 |          #29 | Review the I1 baseline and reprioritize key risks                    | Reliable and current baseline for I2                                                            | R01, R02, R03, R08, R10, R11 | Done        |
+|     2 |          #30 | Select the architecturally significant use case for I2               | One explicitly justified use case selected for Elaboration                                      | R01, R03, R09, R11           | In Progress |
 |     3 |          #31 | Refine the selected use case and relevant supplementary requirements | Sufficient behavioral and quality detail for the selected slice                                 | R05, R09, R14, R15           | Backlog     |
 |     4 |          #32 | Create a focused Domain Model and identify system operations         | Relevant domain concepts and system operations identified without modeling the complete product | R05, R06, R10                | Backlog     |
 |     5 |          #33 | Define the initial architecture hypothesis and validation strategy   | Explicit architecture hypothesis and evidence plan                                              | R08, R10, R13, R15           | Backlog     |
@@ -202,7 +202,7 @@ They are **candidates, not commitments**.
 
 Their previous P1–P3 assignments are not treated as validated product priorities because sufficient evidence and explicit prioritization rationale do not yet exist.
 
-Issue `#30` will evaluate a limited set of use cases and select one architecturally significant flow for I2.
+Issue `#30` evaluated a limited set of existing use cases and selected **UC-01 — View Content**, associated with `KUNNA-PB-020`, as the architecturally significant use case for the first I2 increment.
 
 | ID           | Candidate Capability                                    | Priority | Evidence Status    | Status  |
 | ------------ | ------------------------------------------------------- | -------- | ------------------ | ------- |
@@ -216,6 +216,10 @@ Issue `#30` will evaluate a limited set of use cases and select one architectura
 | KUNNA-PB-025 | Manage a basic caregiver profile                        | TBD      | Product hypothesis | Backlog |
 | KUNNA-PB-026 | Present daily parenting tips                            | TBD      | Product hypothesis | Backlog |
 | KUNNA-PB-027 | Explore responsible personalization options             | TBD      | Product hypothesis | Backlog |
+
+Selecting `KUNNA-PB-020` as the capability associated with the first I2 slice does not validate it as a product priority or convert the underlying product hypothesis into confirmed user evidence.
+
+Its product priority therefore remains `TBD`, its evidence status remains `Product hypothesis`, and its backlog status remains unchanged until later product evidence justifies a different interpretation.
 
 A candidate capability should not receive a product priority merely because it existed in the original prototype or appears technically interesting.
 
@@ -272,10 +276,12 @@ During refinement:
 
 The current active work item is:
 
-**GitHub Issue #29 — Review the I1 baseline and reprioritize key risks.**
+**GitHub Issue #30 — Select the architecturally significant use case for I2.**
 
-Issue #29 must establish a reliable I2 baseline before the project selects its architecturally significant use case.
+Issue #30 has selected **UC-01 — View Content** as the architecturally significant use case for the first I2 increment.
 
-After Issue #29 is completed, Issue #30 may move from `Backlog` to `Ready` and then to `In Progress` when its dependencies and acceptance criteria are confirmed.
+The Issue remains `In Progress` until its acceptance criteria are fully verified, the changes are reviewed through a pull request, the result is integrated into `main`, and the related GitHub Issue is closed.
+
+After Issue #30 is completed, Issue #31 may move from `Backlog` to `Ready` when its dependencies and acceptance criteria are confirmed.
 
 The closed **I1 — Inception Package** milestone remains historical and is not reopened by normal I2 refinement.
