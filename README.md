@@ -83,7 +83,7 @@ I2 now focuses on reducing important product, requirements, domain, and architec
 
 The current direction is to:
 
-- Select one significant use case.
+- Use **UC-01 — View Content** as the selected architecturally significant use case for the first I2 increment.
 - Refine only the behavior and supplementary requirements relevant to that slice.
 - Create focused domain and system-operation analysis.
 - Formulate an architecture hypothesis.
@@ -250,6 +250,6 @@ The professional value of KUNNA should come from the quality and explainability 
 
 KUNNA es un proyecto personal de ingeniería de software basado en un prototipo UX/UI original. El objetivo no es reconstruir únicamente una interfaz, sino evolucionar esa idea mediante análisis de producto, requisitos, gestión de riesgos, casos de uso, modelado selectivo, diseño orientado a objetos, decisiones de arquitectura, implementación progresiva en Java y pruebas automatizadas.
 
-El proyecto se encuentra actualmente en **I2 — Elaboration**. Después de completar **I1 — Inception Package**, la prioridad es seleccionar un caso de uso arquitectónicamente significativo, refinar únicamente lo necesario para ese alcance, formular una hipótesis de arquitectura y validarla mediante una pequeña vertical slice ejecutable en Java con pruebas automatizadas.
+El proyecto se encuentra actualmente en **I2 — Elaboration**. Después de completar **I1 — Inception Package**, se seleccionó **UC-01 — View Content** como el caso de uso arquitectónicamente significativo para el primer incremento de I2. La prioridad inmediata es refinar únicamente lo necesario para ese alcance, formular una hipótesis de arquitectura y validarla mediante una pequeña vertical slice ejecutable en Java con pruebas automatizadas.
 
 Las capacidades del prototipo original se consideran hipótesis de producto hasta que exista evidencia suficiente para justificar su prioridad o implementación.
