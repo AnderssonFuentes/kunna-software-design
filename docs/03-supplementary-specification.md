@@ -550,23 +550,82 @@ These priorities remain provisional baseline values and may be reassessed when t
 | Privacy and profile data | Manage Profile                                          |
 | Documentation workflow   | All project artifacts                                   |
 
-This table preserves the initial I1 traceability baseline. It does not indicate which use case will be selected for I2.
+This table preserves the broader I1 supplementary traceability baseline. UC-01 — View Content was selected for I2 in Issue #30. The focused treatment of its supplementary requirements is documented below for Issue #31.
 
-## Open Questions
+## I2 Focused Supplementary Traceability — UC-01
 
-The following questions remain open:
+Issue #30 selected UC-01 — View Content as the
+architecturally significant use case for I2.
 
-- Which supplementary requirements materially affect the architecturally significant use case selected for I2?
+The following classification applies only to the selected
+initial slice. It does not replace the broader I1 baseline.
+
+### Applicable and Observable or Reviewable
+
+- **SUP-17:** Successful consultation provides the requested
+  available Content Item. If the item is unavailable, KUNNA
+  indicates that it cannot be provided. An unsuccessful
+  request is not represented as a successful consultation.
+- **SUP-14:** I2 examples, tests, and executable evidence
+  avoid real personal or sensitive data.
+
+### Applicable Scope Constraint
+
+- **SUP-16:** Registration, authentication, and persistent
+  caregiver identity are not assumed for UC-01.
+
+### Applicable, Pending Criteria or Evidence
+
+- **SUP-01, SUP-03, SUP-04:** Clear, understandable,
+  readable, and practical consultation; relevant criteria
+  require further refinement.
+- **SUP-10, SUP-11:** Practical and trustworthy content;
+  provenance and claim validation require separate evidence.
+- **SUP-19, SUP-20:** Responsive content access remains
+  relevant, but quantitative targets are not yet justified.
+- **SUP-31, SUP-32, SUP-33:** Responsible handling of
+  child-related content, no formal legal-advice claim, and
+  researched and cited Colombian claims when relevant.
+
+Software tests that demonstrate successful content access
+do not independently validate legal, educational, or
+parenting claims.
+
+Fictional or synthetic content may be used for engineering
+validation without being represented as authoritative advice.
+
+### Deferred or Outside the Initial Slice
+
+- **SUP-12:** Category-based browsing.
+- **SUP-13:** Saving, sharing, downloading, or revisiting.
+- **SUP-15:** Profile-data handling.
+- **SUP-18:** Saved-content persistence.
+
+SUP-21 through SUP-30 remain relevant as engineering,
+documentation, Git, and AI-collaboration constraints.
+They are not steps in the UC-01 interaction.
+
+The detailed UC-01 behavior, guarantees, extension,
+assumptions, and Issue #32 handoff are documented in
+`docs/02-use-case-model.md`.
+
+---
+
+## Remaining Open Questions for I2
+
+The following questions remain open for the selected slice:
+
+- Which pending supplementary criteria for UC-01 can be justified and verified in the first executable increment?
 - What minimum quality evidence should be produced by the I2 Java vertical slice?
 - Can the selected behavior be validated without persistence?
-- Does the selected behavior require authentication?
+- What new evidence, if any, would justify reconsidering the current decision not to assume authentication for UC-01?
 - How should authoritative content sources be validated when sensitive domain content becomes relevant?
 - Which accessibility concerns materially affect the selected behavior?
-- Are audio, download, sharing, search, profile, or saved-content capabilities relevant to the selected I2 slice?
+- What new evidence, if any, would justify reconsidering capabilities excluded from the initial UC-01 slice?
 - What level of Colombian legal or domain context is necessary for the selected behavior?
 - Which architecture assumptions should be validated through executable evidence?
 
-These questions should be narrowed after the architecturally significant use case is selected rather than answered globally in advance.
+These questions concern the selected UC-01 slice. They do not justify expanding its scope without new evidence.
 
 ## Summary
 
