@@ -195,6 +195,201 @@ This use case represents a broad content-access interaction and may overlap with
 
 Its boundaries may need refinement if selected for I2.
 
+#### I2 Focused Specification — Issue #31
+
+This specification refines the original I1 brief for the
+architecturally significant use case selected in Issue #30.
+It preserves a black-box view of KUNNA and does not prescribe
+implementation mechanisms.
+
+**Scope:** KUNNA
+
+**Level:** User goal
+
+**Primary Actor:** Caregiver
+
+**Related User Goals:** UG-01, UG-02
+
+**Related Product Backlog Item:** KUNNA-PB-020
+
+**Selection Reference:** Issue #30, DJ-009
+
+##### Purpose
+
+Enable a Caregiver to consult an available KUNNA Content Item
+related to children's rights, positive parenting, or daily
+caregiving practices.
+
+The product value and correctness of real content remain
+subject to appropriate validation.
+
+##### Stakeholders and Interests
+
+- **Caregiver:** Consult relevant, understandable, and
+  responsibly handled information.
+- **Children:** Potential indirect beneficiaries of
+  appropriate caregiving information.
+- **KUNNA project owner:** Preserve responsible content
+  handling, traceability, and verifiable engineering outcomes.
+
+These interests derive from the current product baseline;
+they are not presented as validated user-research findings.
+
+##### Preconditions
+
+No additional precondition has been identified as necessary
+for this focused interaction.
+
+Registration, authentication, and persistent caregiver
+identity are not assumed.
+
+Content availability is evaluated during the interaction,
+rather than assumed as a precondition.
+
+##### Minimum Guarantee
+
+KUNNA does not represent an unsuccessful content request as
+a successful consultation.
+
+If the requested Content Item cannot be provided, the
+Caregiver is informed of that outcome.
+
+##### Success Guarantee
+
+The Caregiver can consult the substantive information
+corresponding to the requested, available Content Item,
+with sufficient context to recognize what is being consulted.
+
+This guarantee concerns content access, not independent
+certification of the content's accuracy or authority.
+
+##### Trigger
+
+The Caregiver requests or selects a particular KUNNA
+Content Item for consultation.
+
+##### Main Success Scenario
+
+1. The Caregiver requests a particular KUNNA Content Item
+   for consultation.
+2. KUNNA determines that the requested Content Item is
+   available.
+3. KUNNA provides the corresponding Content Item's
+   substantive information and sufficient context for
+   consultation.
+
+##### Extensions
+
+**2a. The requested Content Item is unavailable.**
+
+1. KUNNA indicates that the requested Content Item cannot
+   be provided.
+2. The use case ends without satisfying the success
+   guarantee.
+
+The extension does not prescribe a user interface, technical
+error format, persistence mechanism, or architecture.
+
+##### Content Identification and Consultation
+
+The interaction must allow KUNNA to distinguish the requested
+Content Item from other content.
+
+A successful consultation provides substantive information,
+recognizable content identity, and sufficient context for
+understanding what is being consulted.
+
+The identification mechanism, exact content structure,
+metadata, and presentation remain unspecified at this stage.
+
+No search or category-browsing capability is introduced.
+
+##### Availability and Trustworthiness
+
+- **Availability:** KUNNA can provide the requested
+  Content Item for consultation.
+- **Provenance:** The origin and traceability of the
+  content's information.
+- **Content validation:** Evidence concerning the
+  correctness and appropriateness of content claims.
+
+Availability does not establish provenance, content validity,
+or legal or professional authority.
+
+Sensitive and authoritative content requires responsible
+handling. Editorial approval criteria and governance
+workflows are not defined by this use case.
+
+Synthetic or fictional content may support engineering
+validation without being presented as authoritative guidance.
+
+##### Relevant Supplementary Requirements
+
+**Applicable with observable or reviewable evidence:**
+
+- SUP-17: Predictable content access through the successful
+  and unavailable-content scenarios.
+- SUP-14: Avoid real personal or sensitive data in current
+  engineering examples and tests.
+
+**Applicable scope constraint:**
+
+- SUP-16: Authentication is not assumed or introduced.
+
+**Applicable, with criteria or evidence pending:**
+
+- SUP-01, SUP-03, SUP-04: Clear, usable, and readable
+  consultation.
+- SUP-10, SUP-11: Practical and trustworthy content.
+- SUP-19, SUP-20: Responsive access; quantitative targets
+  remain undefined.
+- SUP-31, SUP-32, SUP-33: Responsible child-related content,
+  no formal legal-advice claim, and properly supported
+  Colombian claims when relevant.
+
+**Deferred from the selected slice:**
+
+- SUP-12, SUP-13, SUP-15, SUP-18: Category navigation,
+  content reuse, profile data, and saved-content stability.
+
+SUP-21 through SUP-30 continue to govern engineering,
+documentation, Git workflow, and AI-assisted review; they
+are not additional steps in the use case.
+
+##### Assumptions and Open Questions
+
+1. What minimum content structure and domain concepts are
+   justified by the consultation behavior?
+2. How should a particular Content Item be identified
+   without assuming a UI, search, or technical identifier?
+3. What additional eligibility criteria, if any, are needed
+   before real content is offered for consultation?
+4. What provenance and validation evidence will be required
+   for authoritative or sensitive content?
+5. Which readability, accessibility, and practical-use
+   criteria can be evaluated in the first increment?
+6. Which performance expectations can be justified by
+   the later execution context and evidence?
+
+These questions are recorded rather than silently resolved.
+
+##### Scope Boundary and Handoff
+
+The selected slice follows the scope boundary established
+in Issue #30. Search, categories, daily-tip specialization,
+bookmarks, audio, downloads, sharing, profiles,
+authentication, administrative workflows, production
+persistence, integrations, deployment, and final UI
+implementation remain outside its initial scope.
+
+Issue #32 may use this specification to identify relevant
+domain concepts, system events, and candidate system
+operations.
+
+No Java classes, API signatures, database design, framework,
+architecture style, System Sequence Diagram, or operation
+contract is selected by this refinement.
+
 ---
 
 ### UC-02 — View Daily Tip
